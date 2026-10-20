@@ -74,7 +74,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Welcome Hero Card */
+    /* Hero Banner Card */
     .hero-card {
       background: white;
       border-radius: 16px;
@@ -156,6 +156,59 @@
 
     .action-btn span { font-size: 0.75rem; font-weight: 600; color: #334155; }
 
+    /* Niyaz Hisab 3 Cards Section */
+    .niyaz-section { margin-bottom: 16px; }
+    .niyaz-card {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .niyaz-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); }
+    .niyaz-card p { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+    .btn-view-hisab {
+      background: #e0f2fe;
+      color: #0284c7;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    /* Hisab Table Style (Like Photo) */
+    .hisab-table-container {
+      background: white;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+    .hisab-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: left;
+    }
+    .hisab-table th, .hisab-table td {
+      border: 1px solid #94a3b8;
+      padding: 6px 8px;
+    }
+    .hisab-table th {
+      background: #e2e8f0;
+      color: #0f172a;
+      font-weight: bold;
+      text-align: center;
+    }
+
     /* Section Cards */
     .section-card {
       background: white;
@@ -166,33 +219,6 @@
       border: 1px solid #e2e8f0;
     }
     .section-title { font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 12px; }
-
-    .news-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 10px;
-    }
-    .news-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .news-top h3 { font-size: 0.92rem; font-weight: 700; color: #0f172a; }
-    .badge-blue { background: #2563eb; color: white; font-size: 0.68rem; padding: 2px 6px; border-radius: 4px; }
-    .news-desc { font-size: 0.8rem; color: #64748b; margin: 6px 0 10px; }
-    .news-meta { font-size: 0.75rem; color: #2563eb; font-weight: 600; }
-
-    /* Contact Card */
-    .contact-card {
-      background: var(--primary);
-      color: white;
-      border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 16px;
-    }
-    .contact-card h3 { font-size: 1rem; color: #facc15; margin-bottom: 6px; }
-    .contact-card p { font-size: 0.8rem; opacity: 0.9; margin-bottom: 14px; }
-    .contact-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
-    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
 
     /* Forms & Inputs */
     .form-group { margin-bottom: 14px; }
@@ -278,11 +304,6 @@
       font-weight: bold;
     }
 
-    /* Gallery Grid */
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .gallery-item { border-radius: 12px; overflow: hidden; height: 130px; background: #e2e8f0; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-
     /* Bottom Navigation Bar */
     .bottom-nav {
       position: fixed;
@@ -354,7 +375,6 @@
           <div class="icon-box bg-blue">🖼️</div>
           <span>ફોટોઝ</span>
         </div>
-        <!-- નોંધણી બટન હવે સીધું લવાજમ આઈડી કાર્ડ ફોર્મ જ ખોલશે -->
         <div class="action-btn" onclick="openTab('lavajam')">
           <div class="icon-box bg-green">👤</div>
           <span>નોંધણી</span>
@@ -366,6 +386,39 @@
         <div class="action-btn" onclick="openTab('marriage')">
           <div class="icon-box bg-yellow">💍</div>
           <span>મેરેજ</span>
+        </div>
+      </div>
+
+      <!-- 3 NIYAZ HISAB BOXES SECTION -->
+      <div class="section-card">
+        <div class="section-title">📊 ન્યાઝ હિસાબ - આવક & જાવક</div>
+        <div class="niyaz-section">
+          <!-- 1. Mohram Sharif Niyaz -->
+          <div class="niyaz-card" onclick="openHisabPage('મોહર્રમ શરીફ ન્યાઝ હિસાબ')">
+            <div>
+              <h3>૧. મોહર્રમ શરીફ ન્યાઝ</h3>
+              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+            </div>
+            <button class="btn-view-hisab">જુઓ ➔</button>
+          </div>
+
+          <!-- 2. Barmi Sharif Niyaz -->
+          <div class="niyaz-card" onclick="openHisabPage('બારમી શરીફ ન્યાઝ હિસાબ')">
+            <div>
+              <h3>૨. બારમી શરીફ ન્યાઝ</h3>
+              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+            </div>
+            <button class="btn-view-hisab">જુઓ ➔</button>
+          </div>
+
+          <!-- 3. Agyarmi Sharif Niyaz -->
+          <div class="niyaz-card" onclick="openHisabPage('અગિયારમી શરીફ ન્યાઝ હિસાબ')">
+            <div>
+              <h3>૩. અગિયારમી શરીફ ન્યાઝ</h3>
+              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+            </div>
+            <button class="btn-view-hisab">જુઓ ➔</button>
+          </div>
         </div>
       </div>
 
@@ -382,13 +435,120 @@
         </div>
       </div>
 
-      <!-- Contact -->
-      <div class="contact-card">
-        <h3>મદદ અથવા સંપર્ક માટે</h3>
-        <p>કોમ્યુનિટી હોલ બુકિંગ અને અન્ય માહિતી માટે જમાત કાર્યાલયનો સંપર્ક કરો.</p>
-        <div class="contact-btns">
-          <button class="btn-call" onclick="window.location.href='tel:9825000000'">📞 કોલ કરો</button>
-          <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/919825000000'">💬 વોટ્સએપ</button>
+    </div>
+
+    <!-- TAB: NIYAZ HISAB DETAILS PAGE -->
+    <div id="page-hisab-detail" class="tab-page">
+      <div class="section-card">
+        <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
+        <div class="section-title" id="hisabTitle">બારમી શરીફ ન્યાઝ ૨૦૨૬</div>
+
+        <!-- Photo Format Table -->
+        <div class="hisab-table-container">
+          <table class="hisab-table">
+            <thead>
+              <tr>
+                <th colspan="2">આવક</th>
+                <th colspan="2">જાવક</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>૨૧૫૪૭૩/-</strong></td>
+                <td>જમાતના સભ્યોનો ફાળો</td>
+                <td><strong>૧૨૪૦૦૦/-</strong></td>
+                <td>મટનના ૩૩૬ કિલો ૩૭૦ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૧૩૨૩૨/-</strong></td>
+                <td>પર જમાતના સભ્યોનો ફાળો</td>
+                <td><strong>૬૪૦૦૦/-</strong></td>
+                <td>મીઠાઈના ૧૬૦ કિલો ૪૦૦ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૯૦૦/-</strong></td>
+                <td>મોહર્રમશરીફ નો ફાળો</td>
+                <td><strong>૧૧૯૯૦/-</strong></td>
+                <td>ચોખાના ૨૧૦ કિલો ૫૭ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૫૦૦/-</strong></td>
+                <td>હલવો વેચાણ કરતા</td>
+                <td><strong>૬૮૮૦/-</strong></td>
+                <td>સેવના ૪૦ કિલો ૧૭૦ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૨૩૦૧૦૫/-</strong></td>
+                <td>કુલ આવક</td>
+                <td><strong>૫૫૬૫/-</strong></td>
+                <td>તેલના ડબ્બા ૨ નંગ x ૨૭૮૦ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૨૧૯૨૦/-</strong></td>
+                <td>ઘટ આવેલ</td>
+                <td><strong>૨૯૦૦/-</strong></td>
+                <td>લસણ ૨૦ કિલો ૧૪૫ ભાવ</td>
+              </tr>
+              <tr>
+                <td><strong>૨૫૨૦૨૫/-</strong></td>
+                <td><strong>કુલ હિસાબ</strong></td>
+                <td><strong>૬૬૮૦/-</strong></td>
+                <td>બકાલાના</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૬૪૫૦/-</strong></td>
+                <td>દહી તથા ધોરવાના</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૬૦૦૦/-</strong></td>
+                <td>મંડપ ટેબલ પડદાનું ભાડુ</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૩૬૭૫/-</strong></td>
+                <td>ગરમ મસાલા</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૩૪૦૦/-</strong></td>
+                <td>લાકડા ૨૦ મણ ૧૭૦ ભાવ</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૫૦૦૦/-</strong></td>
+                <td>રાંધવાવાળા બાપુની મજૂરી</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૨૪૯૦/-</strong></td>
+                <td>રાંધવાવાળા તથા પીરસવાવાળા માટે નાસ્તો ચા પાન ફાકીના</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૧૨૦૦/-</strong></td>
+                <td>પાણી ના કુલરના</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><strong>૧૭૯૫/-</strong></td>
+                <td>કેરોસીન છાણાં સાબુ પાવડર રિક્ષા ભાડાના</td>
+              </tr>
+              <tr style="background:#fef9c3;">
+                <td colspan="2"><strong>કુલ આવક: ૨૫૨૦૨૫/-</strong></td>
+                <td colspan="2"><strong>કુલ જાવક: ૨૫૨૦૨૫/-</strong></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -533,6 +693,11 @@
       const navBtn = document.getElementById('btn-' + tabName);
       if (navBtn) navBtn.classList.add('active');
       window.scrollTo(0, 0);
+    }
+
+    function openHisabPage(title) {
+      document.getElementById('hisabTitle').innerText = title;
+      openTab('hisab-detail');
     }
 
     function previewUserPhoto(event) {
