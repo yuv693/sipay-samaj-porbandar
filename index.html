@@ -354,7 +354,8 @@
           <div class="icon-box bg-blue">🖼️</div>
           <span>ફોટોઝ</span>
         </div>
-        <div class="action-btn" onclick="openTab('register')">
+        <!-- નોંધણી બટન હવે સીધું લવાજમ આઈડી કાર્ડ ફોર્મ જ ખોલશે -->
+        <div class="action-btn" onclick="openTab('lavajam')">
           <div class="icon-box bg-green">👤</div>
           <span>નોંધણી</span>
         </div>
@@ -404,36 +405,7 @@
       </div>
     </div>
 
-    <!-- TAB 3: REGISTER -->
-    <div id="page-register" class="tab-page">
-      <div class="section-card">
-        <div class="section-title">👤 સભ્ય નોંધણી ફોર્મ</div>
-        <form onsubmit="alert('તમારું રજીસ્ટ્રેશન સફળતાપૂર્વક થઈ ગયું છે!'); return false;">
-          <div class="form-group">
-            <label>પૂરું નામ:</label>
-            <input type="text" placeholder="નામ દાખલ કરો" required>
-          </div>
-          <div class="form-group">
-            <label>મોબાઇલ નંબર:</label>
-            <input type="tel" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
-          </div>
-          <div class="form-group">
-            <label>વિસ્તાર (પોરબંદર):</label>
-            <select required>
-              <option value="">વિસ્તાર પસંદ કરો</option>
-              <option>છાયા</option>
-              <option>ઝુરીબાગ</option>
-              <option>ખાપટ</option>
-              <option>બોખીરા</option>
-              <option>સિટી / મેમણવાડ</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-submit">સેવ કરો</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- TAB 4: BLOOD HELP -->
+    <!-- TAB 3: BLOOD HELP -->
     <div id="page-blood" class="tab-page">
       <div class="section-card">
         <div class="section-title">🩸 ઈમરજન્સી બ્લડ ડોનેશન</div>
@@ -448,7 +420,7 @@
       </div>
     </div>
 
-    <!-- TAB 5: MARRIAGE -->
+    <!-- TAB 4: MARRIAGE -->
     <div id="page-marriage" class="tab-page">
       <div class="section-card">
         <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ</div>
@@ -457,7 +429,7 @@
       </div>
     </div>
 
-    <!-- TAB 6: LAVAJAM CARD GENERATOR -->
+    <!-- TAB 5: LAVAJAM CARD GENERATOR -->
     <div id="page-lavajam" class="tab-page">
       <div class="section-card">
         <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & ડિજિટલ આઈડી કાર્ડ</div>
@@ -536,7 +508,7 @@
       <span class="nav-icon">🖼️</span>
       <span>ગેલેરી</span>
     </button>
-    <button class="nav-item" id="btn-register" onclick="openTab('register')">
+    <button class="nav-item" id="btn-lavajam" onclick="openTab('lavajam')">
       <span class="nav-icon">🪪</span>
       <span>રજિસ્ટર</span>
     </button>
@@ -548,10 +520,6 @@
       <span class="nav-icon">🤍</span>
       <span>મેરેજ</span>
     </button>
-    <button class="nav-item" id="btn-lavajam" onclick="openTab('lavajam')">
-      <span class="nav-icon">💳</span>
-      <span>લવાજમ</span>
-    </button>
   </div>
 
   <script>
@@ -562,7 +530,8 @@
       document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
 
       document.getElementById('page-' + tabName).classList.add('active');
-      document.getElementById('btn-' + tabName).classList.add('active');
+      const navBtn = document.getElementById('btn-' + tabName);
+      if (navBtn) navBtn.classList.add('active');
       window.scrollTo(0, 0);
     }
 
