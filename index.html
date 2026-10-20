@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>સિપાહી સમાજ પોરબંદર - લવાજમ & આઈડી કાર્ડ</title>
+  <title>સિપાહી સમાજ પોરબંદર</title>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -17,7 +17,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding-bottom: 75px; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 80px; }
 
     /* Top App Header */
     .app-header {
@@ -74,6 +74,88 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Welcome Hero Card */
+    .hero-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    .hero-banner {
+      position: relative;
+      height: 220px;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      color: white;
+    }
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
+    }
+    .badge-yellow {
+      background: #facc15;
+      color: #1e3a8a;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .hero-overlay h2 { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 4px; }
+    .hero-location { font-size: 0.8rem; opacity: 0.9; color: #cbd5e1; }
+
+    .hero-body {
+      padding: 16px;
+      font-size: 0.85rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* Grid Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .action-btn {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 6px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .bg-blue { background: #e0f2fe; color: #0284c7; }
+    .bg-green { background: #dcfce7; color: #16a34a; }
+    .bg-red { background: #ffe4e6; color: #e11d48; }
+    .bg-yellow { background: #fef9c3; color: #ca8a04; }
+
+    .action-btn span { font-size: 0.75rem; font-weight: 600; color: #334155; }
+
     /* Section Cards */
     .section-card {
       background: white;
@@ -85,12 +167,40 @@
     }
     .section-title { font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 12px; }
 
+    .news-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    .news-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .news-top h3 { font-size: 0.92rem; font-weight: 700; color: #0f172a; }
+    .badge-blue { background: #2563eb; color: white; font-size: 0.68rem; padding: 2px 6px; border-radius: 4px; }
+    .news-desc { font-size: 0.8rem; color: #64748b; margin: 6px 0 10px; }
+    .news-meta { font-size: 0.75rem; color: #2563eb; font-weight: 600; }
+
+    /* Contact Card */
+    .contact-card {
+      background: var(--primary);
+      color: white;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .contact-card h3 { font-size: 1rem; color: #facc15; margin-bottom: 6px; }
+    .contact-card p { font-size: 0.8rem; opacity: 0.9; margin-bottom: 14px; }
+    .contact-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
+    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
+
     /* Forms & Inputs */
     .form-group { margin-bottom: 14px; }
     .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
     .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; outline: none; }
     .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; }
-    
+    .btn-danger { background: var(--accent-red); }
+
     /* ID Card Design */
     .id-card-wrapper {
       display: none;
@@ -168,7 +278,12 @@
       font-weight: bold;
     }
 
-    /* Bottom Nav */
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; height: 130px; background: #e2e8f0; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Bottom Navigation Bar */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -177,7 +292,7 @@
       background: white;
       display: flex;
       justify-content: space-around;
-      padding: 8px 0;
+      padding: 6px 0;
       border-top: 1px solid #e2e8f0;
       max-width: 500px;
       margin: 0 auto;
@@ -187,11 +302,11 @@
       border: none;
       background: none;
       color: #64748b;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       cursor: pointer;
       flex: 1;
     }
@@ -210,15 +325,140 @@
         <p>એકતા • વિકાસ • સેવા</p>
       </div>
     </div>
-    <button class="btn-emergency" onclick="openTab('lavajam')">
-      💳 લવાજમ કાર્ડ
+    <button class="btn-emergency" onclick="openTab('blood')">
+      ❤️ ઈમરજન્સી
     </button>
   </div>
 
   <div class="container">
 
-    <!-- PAGE: LAVAJAM & ID CARD GENERATOR -->
-    <div id="page-lavajam" class="tab-page active">
+    <!-- TAB 1: HOME -->
+    <div id="page-home" class="tab-page active">
+      <div class="hero-card">
+        <div class="hero-banner">
+          <img src="1000385514.jpg" alt="પોરબંદર સિપાહી સમાજ હોલ">
+          <div class="hero-overlay">
+            <span class="badge-yellow">મુખ્ય હોલ</span>
+            <h2>પોરબંદર સમસ્ત સિપાહી જમાત કોમ્યુનિટી હોલ</h2>
+            <div class="hero-location">📍 પોરબંદર, ગુજરાત</div>
+          </div>
+        </div>
+        <div class="hero-body">
+          જિલ્લાના તમામ સિપાહી સમાજના ભાઈ-બહેનોનું હાર્દિક સ્વાગત છે. સમાજની એકતા, શૈક્ષણિક પ્રગતિ અને સામાજિક કલ્યાણ માટે આ ડિજિટલ પોર્ટલ નિર્માણ કરવામાં આવ્યું છે.
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="quick-actions">
+        <div class="action-btn" onclick="openTab('gallery')">
+          <div class="icon-box bg-blue">🖼️</div>
+          <span>ફોટોઝ</span>
+        </div>
+        <div class="action-btn" onclick="openTab('register')">
+          <div class="icon-box bg-green">👤</div>
+          <span>નોંધણી</span>
+        </div>
+        <div class="action-btn" onclick="openTab('blood')">
+          <div class="icon-box bg-red">🩸</div>
+          <span>બ્લડ હેલ્પ</span>
+        </div>
+        <div class="action-btn" onclick="openTab('marriage')">
+          <div class="icon-box bg-yellow">💍</div>
+          <span>મેરેજ</span>
+        </div>
+      </div>
+
+      <!-- News Section -->
+      <div class="section-card">
+        <div class="section-title">📢 તાજા સમાચાર & જાહેરાત</div>
+        <div class="news-card">
+          <div class="news-top">
+            <h3>વાર્ષિક જનરલ સ્નેહ મિલન સમારોહ</h3>
+            <span class="badge-blue">નવું</span>
+          </div>
+          <div class="news-desc">પોરબંદર સિપાહી સમાજનો વાર્ષિક કાર્યક્રમ કોમ્યુનિટી હોલ ખાતે યોજાશે.</div>
+          <div class="news-meta">📅 તા. ૨૫ ડિસેમ્બર • સમય: સાંજે ૫:૦૦ વાગ્યે</div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-card">
+        <h3>મદદ અથવા સંપર્ક માટે</h3>
+        <p>કોમ્યુનિટી હોલ બુકિંગ અને અન્ય માહિતી માટે જમાત કાર્યાલયનો સંપર્ક કરો.</p>
+        <div class="contact-btns">
+          <button class="btn-call" onclick="window.location.href='tel:9825000000'">📞 કોલ કરો</button>
+          <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/919825000000'">💬 વોટ્સએપ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: GALLERY -->
+    <div id="page-gallery" class="tab-page">
+      <div class="section-card">
+        <div class="section-title">🖼️ સમાજ ફોટો ગેલેરી</div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="1000385514.jpg" alt="Hall">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: REGISTER -->
+    <div id="page-register" class="tab-page">
+      <div class="section-card">
+        <div class="section-title">👤 સભ્ય નોંધણી ફોર્મ</div>
+        <form onsubmit="alert('તમારું રજીસ્ટ્રેશન સફળતાપૂર્વક થઈ ગયું છે!'); return false;">
+          <div class="form-group">
+            <label>પૂરું નામ:</label>
+            <input type="text" placeholder="નામ દાખલ કરો" required>
+          </div>
+          <div class="form-group">
+            <label>મોબાઇલ નંબર:</label>
+            <input type="tel" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
+          </div>
+          <div class="form-group">
+            <label>વિસ્તાર (પોરબંદર):</label>
+            <select required>
+              <option value="">વિસ્તાર પસંદ કરો</option>
+              <option>છાયા</option>
+              <option>ઝુરીબાગ</option>
+              <option>ખાપટ</option>
+              <option>બોખીરા</option>
+              <option>સિટી / મેમણવાડ</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">સેવ કરો</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 4: BLOOD HELP -->
+    <div id="page-blood" class="tab-page">
+      <div class="section-card">
+        <div class="section-title">🩸 ઈમરજન્સી બ્લડ ડોનેશન</div>
+        <div class="form-group">
+          <label>જરૂરી બ્લડ ગ્રુપ પસંદ કરો:</label>
+          <select id="bgSelect">
+            <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option>
+          </select>
+        </div>
+        <button class="btn-submit btn-danger" onclick="searchBlood()">રક્તદાતા શોધો</button>
+        <div id="bloodResult" style="margin-top:15px;"></div>
+      </div>
+    </div>
+
+    <!-- TAB 5: MARRIAGE -->
+    <div id="page-marriage" class="tab-page">
+      <div class="section-card">
+        <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ</div>
+        <p style="font-size:0.85rem; color:#64748b; margin-bottom:15px;">સમાજના યુવક-યુવતીઓ માટે બાયોડેટા નોંધણી.</p>
+        <button class="btn-submit" onclick="alert('બાયોડેટા ફોર્મ ઓપન થશે.')">➕ બાયોડેટા ઉમેરો</button>
+      </div>
+    </div>
+
+    <!-- TAB 6: LAVAJAM CARD GENERATOR -->
+    <div id="page-lavajam" class="tab-page">
       <div class="section-card">
         <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & ડિજિટલ આઈડી કાર્ડ</div>
         <form id="lavajamForm" onsubmit="generateCard(event)">
@@ -245,7 +485,6 @@
               <option>મેમણવાડ / સિટી</option>
             </select>
           </div>
-          <!-- Photo Upload Option -->
           <div class="form-group">
             <label>સભ્યનો ફોટો પસંદ કરો (પાસપોર્ટ ફોટો):</label>
             <input type="file" id="mPhoto" accept="image/*" onchange="previewUserPhoto(event)">
@@ -287,11 +526,31 @@
 
   </div>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Navigation Bar -->
   <div class="bottom-nav">
-    <button class="nav-item active" id="btn-lavajam" onclick="openTab('lavajam')">
+    <button class="nav-item active" id="btn-home" onclick="openTab('home')">
+      <span class="nav-icon">🏠</span>
+      <span>હોમ</span>
+    </button>
+    <button class="nav-item" id="btn-gallery" onclick="openTab('gallery')">
+      <span class="nav-icon">🖼️</span>
+      <span>ગેલેરી</span>
+    </button>
+    <button class="nav-item" id="btn-register" onclick="openTab('register')">
       <span class="nav-icon">🪪</span>
-      <span>લવાજમ કાર્ડ</span>
+      <span>રજિસ્ટર</span>
+    </button>
+    <button class="nav-item" id="btn-blood" onclick="openTab('blood')">
+      <span class="nav-icon">💧</span>
+      <span>બ્લડ</span>
+    </button>
+    <button class="nav-item" id="btn-marriage" onclick="openTab('marriage')">
+      <span class="nav-icon">🤍</span>
+      <span>મેરેજ</span>
+    </button>
+    <button class="nav-item" id="btn-lavajam" onclick="openTab('lavajam')">
+      <span class="nav-icon">💳</span>
+      <span>લવાજમ</span>
     </button>
   </div>
 
@@ -301,8 +560,10 @@
     function openTab(tabName) {
       document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+
       document.getElementById('page-' + tabName).classList.add('active');
       document.getElementById('btn-' + tabName).classList.add('active');
+      window.scrollTo(0, 0);
     }
 
     function previewUserPhoto(event) {
@@ -343,6 +604,17 @@
 
       document.getElementById('idCardWrapper').style.display = 'block';
       document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function searchBlood() {
+      const bg = document.getElementById('bgSelect').value;
+      document.getElementById('bloodResult').innerHTML = `
+        <div style="background:#f1f5f9; padding:12px; border-radius:8px; border-left:4px solid #ef4444; font-size:0.85rem;">
+          <strong>પોરબંદર ${bg} રક્તદાતા:</strong><br>
+          1. અહમદભાઈ સિપાહી (છાયા) - 98250xxxxx<br>
+          2. રફીકભાઈ સિપાહી (ઝુરીબાગ) - 98980xxxxx
+        </div>
+      `;
     }
   </script>
 </body>
