@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- 🔍 Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="Lz9dpg8Q_kBB5BF6Z6N0SLzVZMtqjbXoazGiYtSx1hQ" />
+
   <!-- 🔍 Google Search SEO Meta Tags -->
   <title>સિપાહી સમાજ પોરબંદર - Sipay Samaj Porbandar Portal</title>
   <meta name="description" content="પોરબંદર સમસ્ત સિપાહી જમાત અધિકૃત ડિજિટલ પોર્ટલ. લવાજમ આઈડી કાર્ડ, ન્યાઝ હિસાબ, બ્લડ હેલ્પ અને સમાજ માહિતી.">
-  <meta name="keywords" content="Sipay Samaj Porbandar, સિપાહી સમાજ પોરબંદર, Porbandar Sipay Jamaat, Lavajam Card, Sipay Samaj">
-  <meta name="author" content="સિપાહી સમાજ પોરબંદર">
+  <meta name="keywords" content="Sipay Samaj Porbandar, સિપાહી સમાજ પોરબંદર, Porbandar Sipay Jamaat, Lavajam Card, Sipay Samaj, MIZAN">
+  <meta name="author" content="YUNUS IBRAHEM MALE">
 
   <style>
     :root {
@@ -23,7 +26,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding-bottom: 80px; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 90px; }
 
     /* Top App Header */
     .app-header {
@@ -51,22 +54,33 @@
       align-items: center;
       justify-content: center;
     }
-    .header-title h1 { font-size: 1.1rem; font-weight: 700; line-height: 1.2; }
-    .header-title p { font-size: 0.75rem; opacity: 0.85; }
+    .header-title h1 { font-size: 1.05rem; font-weight: 700; line-height: 1.2; }
+    .header-title p { font-size: 0.72rem; opacity: 0.85; }
+
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    .mizan-logo-badge {
+      background: #facc15;
+      color: #1e3a8a;
+      font-weight: 900;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
     .btn-emergency {
       background: var(--accent-red);
       color: white;
       border: none;
-      padding: 8px 14px;
+      padding: 6px 10px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: bold;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
     }
 
     .container { max-width: 500px; margin: 0 auto; padding: 14px; }
@@ -253,6 +267,33 @@
     .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
     .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
 
+    /* Developer Footer Branding Card */
+    .dev-footer-card {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #334155;
+    }
+    .dev-footer-card .mizan-title {
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+      color: #facc15;
+      margin-bottom: 4px;
+    }
+    .dev-footer-card p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      color: #cbd5e1;
+    }
+    .dev-footer-card strong {
+      color: #ffffff;
+    }
+
     /* Forms & Inputs */
     .form-group { margin-bottom: 14px; }
     .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
@@ -384,9 +425,12 @@
         <p>એકતા • વિકાસ • સેવા</p>
       </div>
     </div>
-    <button class="btn-emergency" onclick="openTab('blood')">
-      ❤️ ઈમરજન્સી
-    </button>
+    <div class="header-right">
+      <div class="mizan-logo-badge">MIZAN</div>
+      <button class="btn-emergency" onclick="openTab('blood')">
+        ❤️ ઈમરજન્સી
+      </button>
+    </div>
   </div>
 
   <div class="container">
@@ -482,6 +526,13 @@
           <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/919825000000'">💬 વોટ્સએપ</button>
         </div>
       </div>
+
+      <!-- Developer Branding Footer -->
+      <div class="dev-footer-card">
+        <div class="mizan-title">✨ MIZAN ✨</div>
+        <p>Developed by <strong>YUNUS IBRAHEM MALE</strong></p>
+      </div>
+
     </div>
 
     <!-- TAB: NIYAZ HISAB DETAILS PAGE -->
@@ -732,7 +783,6 @@
   <script>
     let uploadedPhotoUrl = "";
 
-    // 👉 જ્યારે તમારી પાસે Google Web App URL આવી જાય ત્યારે આ લિંકના બદલે પેસ્ટ કરી દેવી:
     const GOOGLE_WEB_APP_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
 
     function openTab(tabName) {
@@ -789,7 +839,6 @@
       document.getElementById('idCardWrapper').style.display = 'block';
       document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
 
-      // Google Sheet Data Push (If URL configured)
       if (GOOGLE_WEB_APP_URL !== "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
         fetch(GOOGLE_WEB_APP_URL, {
           method: 'POST',
