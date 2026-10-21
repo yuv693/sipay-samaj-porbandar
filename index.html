@@ -783,7 +783,8 @@
   <script>
     let uploadedPhotoUrl = "";
 
-    const GOOGLE_WEB_APP_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+    // 🔗 LIVE GOOGLE SHEET WEB APP CONNECTION URL
+    const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
 
     function openTab(tabName) {
       document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
@@ -839,15 +840,14 @@
       document.getElementById('idCardWrapper').style.display = 'block';
       document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
 
-      if (GOOGLE_WEB_APP_URL !== "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
-        fetch(GOOGLE_WEB_APP_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: name, mobile: mobile, number: num, area: area })
-        }).then(() => console.log('Data saved to Google Sheet!'))
-          .catch(err => console.error(err));
-      }
+      // Save Data to Google Sheet
+      fetch(GOOGLE_WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, mobile: mobile, number: num, area: area })
+      }).then(() => console.log('Data successfully saved to Google Sheet!'))
+        .catch(err => console.error(err));
     }
 
     function searchBlood() {
