@@ -80,14 +80,16 @@
     .hero-overlay h2 { font-size: 1.15rem; font-weight: 700; color: white; }
     .hero-body { padding: 16px; font-size: 0.85rem; color: #475569; line-height: 1.5; }
 
-    .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
-    .action-btn { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 6px; text-align: center; cursor: pointer; }
-    .icon-box { width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    /* Quick Actions (5 Column Layout) */
+    .quick-actions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 16px; }
+    .action-btn { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 2px; text-align: center; cursor: pointer; }
+    .icon-box { width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 4px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
     .bg-blue { background: #e0f2fe; color: #0284c7; }
     .bg-green { background: #dcfce7; color: #16a34a; }
     .bg-red { background: #ffe4e6; color: #e11d48; }
     .bg-yellow { background: #fef9c3; color: #ca8a04; }
-    .action-btn span { font-size: 0.75rem; font-weight: 600; color: #334155; }
+    .bg-purple { background: #f3e8ff; color: #9333ea; }
+    .action-btn span { font-size: 0.65rem; font-weight: 600; color: #334155; display: block; }
 
     .niyaz-card { background: white; border: 1px solid #cbd5e1; border-left: 5px solid var(--primary); border-radius: 12px; padding: 14px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
     .niyaz-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); }
@@ -114,6 +116,15 @@
     .btn-print-a4 { background: #0284c7; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 12px; }
     .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; }
     .btn-clear-all { background: #64748b; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; float: right; }
+
+    /* Bank & QR Donation Styling */
+    .bank-card {
+      background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px; margin-bottom: 14px;
+    }
+    .bank-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 6px 0; border-bottom: 1px dashed #e2e8f0; }
+    .bank-row strong { color: var(--primary); }
+    .qr-box { text-align: center; padding: 12px; background: white; border: 2px solid #e2e8f0; border-radius: 12px; margin-bottom: 14px; }
+    .qr-box img { max-width: 180px; height: auto; border-radius: 8px; }
 
     .data-item-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 10px; font-size: 0.85rem; }
     .data-item-card strong { color: var(--primary); }
@@ -209,12 +220,13 @@
         </div>
       </div>
 
-      <!-- Quick Actions -->
+      <!-- Quick Actions (5 Buttons) -->
       <div class="quick-actions">
         <div class="action-btn" onclick="openTab('gallery')"><div class="icon-box bg-blue">🖼️</div><span>ફોટોઝ</span></div>
         <div class="action-btn" onclick="openTab('lavajam')"><div class="icon-box bg-green">👤</div><span>નોંધણી</span></div>
-        <div class="action-btn" onclick="openTab('blood')"><div class="icon-box bg-red">🩸</div><span>બ્લડ હેલ્પ</span></div>
+        <div class="action-btn" onclick="openTab('blood')"><div class="icon-box bg-red">🩸</div><span>બ્લડ</span></div>
         <div class="action-btn" onclick="openTab('hall-booking')"><div class="icon-box bg-yellow">🏛️</div><span>હોલ બુકિંગ</span></div>
+        <div class="action-btn" onclick="openTab('donation')"><div class="icon-box bg-purple">💰</div><span>દાન/સહયોગ</span></div>
       </div>
 
       <!-- Niyaz Hisab Boxes -->
@@ -329,6 +341,39 @@
             </tfoot>
           </table>
         </div>
+      </div>
+    </div>
+
+    <!-- TAB: DONATION / SAHAYOG (NEW FEATURE) -->
+    <div id="page-donation" class="tab-page">
+      <div class="section-card">
+        <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
+        <div class="section-title">💰 સમાજ દાન / સહયોગ (Donation & Fund)</div>
+        <p style="font-size:0.82rem; color:#475569; margin-bottom:14px; line-height:1.4;">
+          પોરબંદર સમાજના વિકાસ કાર્યો, ન્યાઝ ફાળો અને ઈમરજન્સી સેવાઓ માટે તમારો સહયોગ નીચે આપેલ QR Code અથવા બેંક એકાઉન્ટમાં સીધો ટ્રાન્સફર કરી શકો છો.
+        </p>
+
+        <!-- UPI QR CODE DISPLAY -->
+        <div class="qr-box">
+          <h4 style="font-size:0.88rem; color:var(--primary); margin-bottom:6px;">📲 GPay / PhonePe / Paytm QR Code</h4>
+          <img src="watermarked_img_5697005019436083044.png" alt="Samaj QR Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SipaySamajPorbandar'">
+          <p style="font-size:0.75rem; color:#64748b; margin-top:6px;">UPI ID: <strong>sipaysamaj@upi</strong></p>
+        </div>
+
+        <!-- BANK ACCOUNT DETAILS -->
+        <div class="bank-card">
+          <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:8px;">🏦 સમાજ ટ્રસ્ટ બેંક વિગત:</h4>
+          <div class="bank-row"><span>એકાઉન્ટ નામ:</span> <strong>પોરબંદર સમસ્ત સિપાહી જમાત</strong></div>
+          <div class="bank-row"><span>બેંકનું નામ:</span> <strong>State Bank of India (SBI)</strong></div>
+          <div class="bank-row"><span>એકાઉન્ટ નંબર:</span> <strong>38291048291</strong></div>
+          <div class="bank-row"><span>IFSC કોડ:</span> <strong>SBIN0000458</strong></div>
+          <div class="bank-row"><span>શાખા:</span> <strong>પોરબંદર (Porbandar Main)</strong></div>
+        </div>
+
+        <!-- WHATSAPP SLIP CONFIRMATION -->
+        <a href="https://wa.me/919825000000?text=Salam%20Admin,%20Maine%20Sipay%20Samaj%20Fund%20mein%20Donation%20transfer%20kiya%20hai.%20Kripya%20Receipt%20bhejiye." target="_blank" class="btn-whatsapp-share" style="padding:10px; font-size:0.85rem; width:100%;">
+          📲 ટ્રાન્સફર કર્યા પછી પેમેન્ટ સ્લીપ વોટ્સએપ પર મોકલો
+        </a>
       </div>
     </div>
 
