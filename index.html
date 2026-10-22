@@ -187,11 +187,11 @@
       font-size: 0.75rem;
     }
 
-    /* Hisab Table Style */
+    /* Direct Touch Editable Table Styling */
     .hisab-table-container {
       background: white;
       border-radius: 12px;
-      padding: 12px;
+      padding: 8px;
       border: 1px solid #cbd5e1;
       margin-top: 10px;
       overflow-x: auto;
@@ -199,18 +199,36 @@
     .hisab-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-align: left;
     }
     .hisab-table th, .hisab-table td {
       border: 1px solid #94a3b8;
-      padding: 6px 8px;
+      padding: 8px 6px;
     }
     .hisab-table th {
       background: #e2e8f0;
       color: #0f172a;
       font-weight: bold;
       text-align: center;
+    }
+    .editable-cell {
+      background-color: #ffffff;
+      outline: none;
+      transition: background 0.2s;
+    }
+    .editable-cell:focus {
+      background-color: #fef08a;
+      box-shadow: inset 0 0 0 2px #ca8a04;
+    }
+    .edit-hint {
+      font-size: 0.73rem;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
     /* Section Cards */
@@ -273,30 +291,23 @@
       background: linear-gradient(90deg, #facc15, #38bdf8, #facc15);
     }
     .mizan-logo-img {
-      max-width: 180px;
+      max-width: 160px;
       height: auto;
       margin: 0 auto 8px auto;
       display: block;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-    .dev-footer-card p {
-      font-size: 0.78rem;
-      color: #94a3b8;
-      letter-spacing: 0.5px;
-    }
-    .dev-footer-card strong {
-      color: #f8fafc;
-      font-weight: 700;
-    }
+    .dev-footer-card p { font-size: 0.78rem; color: #94a3b8; letter-spacing: 0.5px; }
+    .dev-footer-card strong { color: #f8fafc; font-weight: 700; }
 
     /* Forms & Inputs */
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; outline: none; }
-    .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: #334155; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; outline: none; }
+    .btn-submit { background: var(--secondary); color: white; border: none; padding: 10px; border-radius: 8px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 4px; }
     .btn-danger { background: var(--accent-red); }
     .btn-secondary { background: #64748b; color: white; }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
 
     /* Dynamic Item Cards */
     .data-item-card {
@@ -309,7 +320,6 @@
     }
     .data-item-card strong { color: var(--primary); }
 
-    /* Hall Booking Status Badges */
     .status-booked { background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
     .status-available { background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
 
@@ -381,9 +391,7 @@
     /* Bottom Navigation Bar */
     .bottom-nav {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       background: white;
       display: flex;
       justify-content: space-around;
@@ -420,9 +428,7 @@
         <p>એકતા • વિકાસ • સેવા</p>
       </div>
     </div>
-    <button class="btn-emergency" onclick="openTab('blood')">
-      ❤️ ઈમરજન્સી
-    </button>
+    <button class="btn-emergency" onclick="openTab('blood')">❤️ ઈમરજન્સી</button>
   </div>
 
   <div class="container">
@@ -465,14 +471,12 @@
 
       <!-- 3 NIYAZ HISAB BOXES SECTION -->
       <div class="section-card">
-        <div class="section-title" style="display:flex; justify-content:space-between; align-items:center;">
-          <span>📊 ન્યાઝ હિસાબ - આવક & જાવક</span>
-        </div>
+        <div class="section-title">📊 ન્યાઝ હિસાબ - આવક & જાવક</div>
         <div class="niyaz-section">
           <div class="niyaz-card" onclick="openHisabPage('મોહર્રમ શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૧. મોહર્રમ શરીફ ન્યાઝ</h3>
-              <p id="date-mohram">📅 તા. ૨૫ જુલાઈ ૨૦૨૫ • પૂર્ણ હિસાબ</p>
+              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
@@ -480,7 +484,7 @@
           <div class="niyaz-card" onclick="openHisabPage('બારમી શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૨. બારમી શરીફ ન્યાઝ</h3>
-              <p id="date-barmi">📅 તા. ૧૨ સપ્ટેમ્બર ૨૦૨૬ • પૂર્ણ હિસાબ</p>
+              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
@@ -488,45 +492,16 @@
           <div class="niyaz-card" onclick="openHisabPage('અગિયારમી શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૩. અગિયારમી શરીફ ન્યાઝ</h3>
-              <p id="date-agyarmi">📅 તા. ૨૨ ઓક્ટોબર ૨૦૨૬ • પૂર્ણ હિસાબ</p>
+              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
-        </div>
-        <button class="btn-submit btn-secondary" onclick="toggleElement('addHisabFormBox')">➕ નવો હિસાબ ઉમેરો / એડિટ કરો</button>
-        
-        <!-- Add/Edit Hisab Form -->
-        <div id="addHisabFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
-          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવો હિસાબ / એડિટ ફોર્મ</h4>
-          <div class="form-group">
-            <label>હિસાબનો પ્રકાર:</label>
-            <select id="hisabTypeSelect">
-              <option>મોહર્રમ શરીફ ન્યાઝ</option>
-              <option>બારમી શરીફ ન્યાઝ</option>
-              <option>અગિયારમી શરીફ ન્યાઝ</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>કાર્યક્રમ તારીખ:</label>
-            <input type="date" id="hisabDateInput">
-          </div>
-          <div class="form-group">
-            <label>વિગત (આવક/જાવક એન્ટ્રી):</label>
-            <input type="text" id="hisabDetailInput" placeholder="દા.ત. જમાત ફાળો / ચોખા ખરીદી">
-          </div>
-          <div class="form-group">
-            <label>રકમ (₹):</label>
-            <input type="number" id="hisabAmountInput" placeholder="દા.ત. 5000">
-          </div>
-          <button class="btn-submit" onclick="addNewHisabEntry()">હિસાબ સેવ કરો</button>
         </div>
       </div>
 
       <!-- News Section -->
       <div class="section-card">
-        <div class="section-title" style="display:flex; justify-content:space-between; align-items:center;">
-          <span>📢 તાજા સમાચાર & જાહેરાત</span>
-        </div>
+        <div class="section-title">📢 તાજા સમાચાર & જાહેરાત</div>
         <div id="newsListContainer">
           <div class="news-card">
             <div class="news-top">
@@ -538,11 +513,10 @@
           </div>
         </div>
 
-        <button class="btn-submit btn-secondary" onclick="toggleElement('addNewsFormBox')">➕ નવી જાહેરાત / કાર્યક્રમ ઉમેરો</button>
+        <button class="btn-submit btn-secondary" onclick="toggleElement('addNewsFormBox')">➕ નવી જાહેરાત ઉમેરો</button>
 
-        <!-- Add News Form -->
         <div id="addNewsFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
-          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવી જાહેરાત ફોર્મ</h4>
+          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવી જાહેરાત ઉમેરો</h4>
           <div class="form-group">
             <label>કાર્યક્રમનું શીર્ષક:</label>
             <input type="text" id="newsTitleInput" placeholder="દા.ત. સ્નેહ મિલન ૨૦૨૬">
@@ -553,19 +527,19 @@
           </div>
           <div class="form-group">
             <label>વિગત:</label>
-            <textarea id="newsDescInput" rows="2" placeholder="કાર્યક્રમની વિગત અહી લખો..."></textarea>
+            <textarea id="newsDescInput" rows="2" placeholder="કાર્યક્રમની વિગત..."></textarea>
           </div>
-          <button class="btn-submit" onclick="addNewNewsEntry()">જાહેરાત પબ્લિશ કરો</button>
+          <button class="btn-submit" onclick="addNewNewsEntry()">પબ્લિશ કરો</button>
         </div>
       </div>
 
-      <!-- Contact Section with Direct Call & WhatsApp Group Links -->
+      <!-- Contact Section -->
       <div class="contact-card">
         <h3>મદદ અથવા સંપર્ક માટે</h3>
-        <p>કોમ્યુનિટી હોલ બુકિંગ, જમાત માહિતી અને ગ્રુપ માટે સંપર્ક કરો.</p>
+        <p>કોમ્યુનિટી હોલ બુકિંગ અને માહિતી માટે સંપર્ક કરો.</p>
         <div class="contact-btns">
           <a class="btn-call" href="tel:9825000000">📞 કોલ કરો</a>
-          <a class="btn-whatsapp" href="https://wa.me/919825000000?text=Salam%20Porbandar%20Sipay%20Samaj" target="_blank">💬 વોટ્સએપ મેસેજ</a>
+          <a class="btn-whatsapp" href="https://wa.me/919825000000?text=Salam%20Porbandar%20Sipay%20Samaj" target="_blank">💬 વોટ્સએપ</a>
         </div>
         <a class="btn-group-link" href="https://chat.whatsapp.com/ExampleGroupLink" target="_blank">📲 સિપાહી સમાજ વોટ્સએપ ગ્રુપમાં જોડાઓ</a>
       </div>
@@ -578,64 +552,96 @@
 
     </div>
 
-    <!-- TAB: NIYAZ HISAB DETAILS PAGE -->
+    <!-- TAB: DIRECT TOUCH EDITABLE NIYAZ HISAB PAGE -->
     <div id="page-hisab-detail" class="tab-page">
       <div class="section-card">
         <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
-        <div class="section-title" id="hisabTitle">બારમી શરીફ ન્યાઝ ૨૦૨૬</div>
+        
+        <div class="section-title" id="hisabTitle">મોહર્રમ શરીફ ન્યાઝ હિસાબ</div>
+
+        <div class="edit-hint">
+          💡 <strong>ડાયરેક્ટ એડિટ સિસ્ટમ:</strong> કોઈપણ રકમ અથવા નામ પર ટચ (Click) કરીને સીધું લખો. સરવાળો આપોઆપ બદલાઈ જશે!
+        </div>
+
+        <button class="btn-submit" onclick="addNewTableRow()" style="margin-bottom:10px;">➕ નવી ખાલી રો (Row) ઉમેરો</button>
 
         <div class="hisab-table-container">
           <table class="hisab-table">
             <thead>
               <tr>
-                <th colspan="2">આવક</th>
-                <th colspan="2">જાવક</th>
+                <th colspan="2" style="background:#dcfce7; color:#166534;">આવક (Income)</th>
+                <th colspan="2" style="background:#fee2e2; color:#991b1b;">જાવક (Expense)</th>
+                <th style="width:25px;">❌</th>
               </tr>
             </thead>
-            <tbody id="hisabTableBody">
+            <tbody id="editableTableBody">
+              <!-- Full Original Hisab Details From Image -->
               <tr>
-                <td><strong>૨૧૫૪૭૩/-</strong></td>
-                <td>જમાતના સભ્યોનો ફાળો</td>
-                <td><strong>૧૨૪૦૦૦/-</strong></td>
-                <td>મટનના ૩૩૬ કિલો ૩૭૦ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">215473</td>
+                <td class="editable-cell" contenteditable="true">જમાતના સભ્યોનો ફાળો</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">124000</td>
+                <td class="editable-cell" contenteditable="true">મટનના ૩૩૬ કિલો ૩૭૦ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
               <tr>
-                <td><strong>૧૩૨૩૨/-</strong></td>
-                <td>પર જમાતના સભ્યોનો ફાળો</td>
-                <td><strong>૬૪૦૦૦/-</strong></td>
-                <td>મીઠાઈના ૧૬૦ કિલો ૪૦૦ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">13232</td>
+                <td class="editable-cell" contenteditable="true">પર જમાતના સભ્યોનો ફાળો</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">64000</td>
+                <td class="editable-cell" contenteditable="true">મીઠાઈના ૧૬૦ કિલો ૪૦૦ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
               <tr>
-                <td><strong>૯૦૦/-</strong></td>
-                <td>મોહર્રમશરીફ નો ફાળો</td>
-                <td><strong>૧૧૯૯૦/-</strong></td>
-                <td>ચોખાના ૨૧૦ કિલો ૫૭ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">900</td>
+                <td class="editable-cell" contenteditable="true">મોહર્રમશરીફ નો ફાળો</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">11990</td>
+                <td class="editable-cell" contenteditable="true">ચોખાના ૨૧૦ કિલો ૫૭ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
               <tr>
-                <td><strong>૫૦૦/-</strong></td>
-                <td>હલવો વેચાણ કરતા</td>
-                <td><strong>૬૮૮૦/-</strong></td>
-                <td>સેવના ૪૦ કિલો ૧૭૦ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">500</td>
+                <td class="editable-cell" contenteditable="true">હલવો વેચાણ કરતા</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">6880</td>
+                <td class="editable-cell" contenteditable="true">સેવના ૪૦ કિલો ૧૭૦ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
               <tr>
-                <td><strong>૨૩૦૧૦૫/-</strong></td>
-                <td>કુલ આવક</td>
-                <td><strong>૫૫૬૫/-</strong></td>
-                <td>તેલના ડબ્બા ૨ નંગ x ૨૭૮૦ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
+                <td class="editable-cell" contenteditable="true">-</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">5565</td>
+                <td class="editable-cell" contenteditable="true">તેલના ડબ્બા ૨ નંગ X ૨૭૮૦ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
               <tr>
-                <td><strong>૨૧૯૨૦/-</strong></td>
-                <td>ઘટ આવેલ</td>
-                <td><strong>૨૯૦૦/-</strong></td>
-                <td>લસણ ૨૦ કિલો ૧૪૫ ભાવ</td>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
+                <td class="editable-cell" contenteditable="true">-</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">2900</td>
+                <td class="editable-cell" contenteditable="true">લસણ ૨૦ કિલો ૧૪૫ ભાવ</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
-              <tr style="background:#fef9c3;">
-                <td colspan="2"><strong>કુલ આવક: ૨૫૨૦૨૫/-</strong></td>
-                <td colspan="2"><strong>કુલ જાવક: ૨૫૨૦૨૫/-</strong></td>
+              <tr>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">21920</td>
+                <td class="editable-cell" contenteditable="true">ઘટ આવેલ</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">2600</td>
+                <td class="editable-cell" contenteditable="true">બકાલાના</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
+              </tr>
+              <tr>
+                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
+                <td class="editable-cell" contenteditable="true">-</td>
+                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">6450</td>
+                <td class="editable-cell" contenteditable="true">દહી તથા ધોરવાના</td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr style="background:#fef9c3; font-weight:bold;">
+                <td colspan="2" id="totalAavakText" style="color:#15803d; font-size:0.85rem; padding:8px;">કુલ આવક: ₹252025/-</td>
+                <td colspan="3" id="totalJavakText" style="color:#b91c1c; font-size:0.85rem; padding:8px;">કુલ જાવક: ₹224385/-</td>
+              </tr>
+            </tfoot>
           </table>
         </div>
+
       </div>
     </div>
 
@@ -651,17 +657,15 @@
       </div>
     </div>
 
-    <!-- TAB 3: BLOOD HELP (REGISTER & SEARCH) -->
+    <!-- TAB 3: BLOOD HELP -->
     <div id="page-blood" class="tab-page">
       <div class="section-card">
         <div class="section-title">🩸 ઈમરજન્સી બ્લડ ડોનેશન હેલ્પ</div>
-        
         <div style="display:flex; gap:8px; margin-bottom:14px;">
           <button class="btn-submit" style="flex:1;" onclick="showBloodSubTab('search')">🔍 રક્તદાતા શોધો</button>
           <button class="btn-submit btn-secondary" style="flex:1;" onclick="showBloodSubTab('register')">➕ રક્તદાતા બનો</button>
         </div>
 
-        <!-- Subtab 1: Search Blood -->
         <div id="bloodSearchBox">
           <div class="form-group">
             <label>જરૂરી બ્લડ ગ્રુપ પસંદ કરો:</label>
@@ -673,45 +677,40 @@
           <div id="bloodResult" style="margin-top:15px;"></div>
         </div>
 
-        <!-- Subtab 2: Register as Donor -->
         <div id="bloodRegisterBox" style="display:none;">
           <h4 style="font-size:0.9rem; margin-bottom:10px; color:var(--primary);">નવા રક્તદાતા નોંધણી</h4>
           <div class="form-group">
             <label>રક્તદાતાનું નામ:</label>
-            <input type="text" id="donorName" placeholder="તમારું નામ" required>
+            <input type="text" id="donorName" placeholder="તમારું નામ">
           </div>
           <div class="form-group">
             <label>મોબાઇલ નંબર:</label>
-            <input type="tel" id="donorMobile" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
+            <input type="tel" id="donorMobile" placeholder="10 અંકનો નંબર">
           </div>
           <div class="form-group">
             <label>બ્લડ ગ્રુપ:</label>
             <select id="donorBg">
-              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option><option>A-</option><option>B-</option><option>AB-</option>
+              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option>
             </select>
           </div>
           <div class="form-group">
             <label>પોરબંદર નો વિસ્તાર:</label>
             <input type="text" id="donorArea" placeholder="દા.ત. છાયા / બોખીરા">
           </div>
-          <button class="btn-submit btn-danger" onclick="registerBloodDonor()">રક્તદાતા તરીકે નોંધણી કરો</button>
+          <button class="btn-submit btn-danger" onclick="registerBloodDonor()">નોંધણી કરો</button>
         </div>
-
       </div>
     </div>
 
-    <!-- TAB 4: MARRIAGE / MATRIMONIAL (FORM & SHOW BIODATAS) -->
+    <!-- TAB 4: MARRIAGE -->
     <div id="page-marriage" class="tab-page">
       <div class="section-card">
         <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ બાયોડેટા</div>
-        <p style="font-size:0.85rem; color:#64748b; margin-bottom:15px;">સમાજના યુવક-યુવતીઓ માટે બાયોડેટા નોંધણી અને યાદી.</p>
-        
         <div style="display:flex; gap:8px; margin-bottom:14px;">
           <button class="btn-submit" style="flex:1;" onclick="showMarriageSubTab('list')">📋 બાયોડેટા જુઓ</button>
           <button class="btn-submit btn-secondary" style="flex:1;" onclick="showMarriageSubTab('form')">➕ નવો બાયોડેટા ઉમેરો</button>
         </div>
 
-        <!-- Marriage Subtab 1: List -->
         <div id="marriageListBox">
           <div id="biodataListContainer">
             <div class="data-item-card">
@@ -723,31 +722,14 @@
           </div>
         </div>
 
-        <!-- Marriage Subtab 2: Add Form -->
         <div id="marriageFormBox" style="display:none;">
-          <div class="form-group">
-            <label>યુવક/યુવતીનું નામ:</label>
-            <input type="text" id="bioName" placeholder="પૂરું નામ" required>
-          </div>
-          <div class="form-group">
-            <label>ઉંમર:</label>
-            <input type="number" id="bioAge" placeholder="દા.ત. 24" required>
-          </div>
-          <div class="form-group">
-            <label>અભ્યાસ / ક્વોલિફિકેશન:</label>
-            <input type="text" id="bioEdu" placeholder="દા.ત. B.Com / ITI" required>
-          </div>
-          <div class="form-group">
-            <label>વ્યવસાય / નોકરી:</label>
-            <input type="text" id="bioJob" placeholder="દા.ત. બિઝનેસ / જોબ" required>
-          </div>
-          <div class="form-group">
-            <label>વિસ્તાર & સંપર્ક નંબર:</label>
-            <input type="text" id="bioContact" placeholder="વિસ્તાર અને મોબાઇલ નંબર" required>
-          </div>
-          <button class="btn-submit" onclick="saveBiodata()">બાયોડેટા પબ્લિશ કરો</button>
+          <div class="form-group"><label>નામ:</label><input type="text" id="bioName"></div>
+          <div class="form-group"><label>ઉંમર:</label><input type="number" id="bioAge"></div>
+          <div class="form-group"><label>અભ્યાસ:</label><input type="text" id="bioEdu"></div>
+          <div class="form-group"><label>વ્યવસાય:</label><input type="text" id="bioJob"></div>
+          <div class="form-group"><label>સંપર્ક:</label><input type="text" id="bioContact"></div>
+          <button class="btn-submit" onclick="saveBiodata()">પબ્લિશ કરો</button>
         </div>
-
       </div>
     </div>
 
@@ -756,33 +738,17 @@
       <div class="section-card">
         <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & ડિજિટલ આઈડી કાર્ડ</div>
         <form id="lavajamForm" onsubmit="generateCard(event)">
-          <div class="form-group">
-            <label>સભ્યનું પૂરું નામ:</label>
-            <input type="text" id="mName" placeholder="દા.ત. અહમદભાઈ સિપાહી" required>
-          </div>
-          <div class="form-group">
-            <label>સભ્ય મોબાઇલ નંબર:</label>
-            <input type="tel" id="mMobile" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
-          </div>
-          <div class="form-group">
-            <label>સભ્ય નંબર (Member ID):</label>
-            <input type="text" id="mNumber" placeholder="દા.ત. SSP-102" required>
-          </div>
+          <div class="form-group"><label>સભ્યનું પૂરું નામ:</label><input type="text" id="mName" required></div>
+          <div class="form-group"><label>સભ્ય મોબાઇલ નંબર:</label><input type="tel" id="mMobile" pattern="[0-9]{10}" required></div>
+          <div class="form-group"><label>સભ્ય નંબર (Member ID):</label><input type="text" id="mNumber" required></div>
           <div class="form-group">
             <label>પોરબંદરનો વિસ્તાર:</label>
             <select id="mArea" required>
               <option value="">વિસ્તાર પસંદ કરો</option>
-              <option>છાયા</option>
-              <option>ઝુરીબાગ</option>
-              <option>ખાપટ</option>
-              <option>બોખીરા</option>
-              <option>મેમણવાડ / સિટી</option>
+              <option>છાયા</option><option>ઝુરીબાગ</option><option>ખાપટ</option><option>બોખીરા</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>સભ્યનો ફોટો પસંદ કરો (પાસપોર્ટ ફોટો):</label>
-            <input type="file" id="mPhoto" accept="image/*" onchange="previewUserPhoto(event)">
-          </div>
+          <div class="form-group"><label>સભ્યનો ફોટો:</label><input type="file" id="mPhoto" accept="image/*" onchange="previewUserPhoto(event)"></div>
           <button type="submit" class="btn-submit">સેવ કરો & ડિજિટલ આઈડી કાર્ડ બનાવો</button>
         </form>
 
@@ -809,68 +775,26 @@
               <span class="verified-badge">✓ પ્રમાણિત સભ્ય</span>
             </div>
           </div>
-          <p style="text-align:center; font-size:0.75rem; color:#64748b; margin-top:8px;">
-            📸 આ કાર્ડનો સ્ક્રીનશોટ પાડીને સાચવી રાખો.
-          </p>
         </div>
-
       </div>
     </div>
 
-    <!-- TAB 6: HALL BOOKING & AVAILABILITY CALENDAR -->
+    <!-- TAB 6: HALL BOOKING -->
     <div id="page-hall-booking" class="tab-page">
       <div class="section-card">
         <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ & તારીખ ઉપલબ્ધતા</div>
-        <p style="font-size:0.85rem; color:#64748b; margin-bottom:14px;">હોલ ક્યારે બુક છે અને ક્યારે ખાલી છે તેની લાઈવ વિગત.</p>
-        
-        <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:8px;">📅 આગામી બુકિંગ સ્ટેટસ:</h4>
         <div id="hallBookingStatusList">
           <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>
-              લગ્ન પ્રસંગ (બુક કરનાર: રફીકભાઈ)
-            </div>
+            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>લગ્ન પ્રસંગ (બુક છે)</div>
             <span class="status-booked">બુક છે 🔴</span>
-          </div>
-          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <strong>તા. ૨૦ નવેમ્બર ૨૦૨૬</strong><br>
-              સ્નેહ મિલન કાર્યક્રમ
-            </div>
-            <span class="status-booked">બુક છે 🔴</span>
-          </div>
-          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <strong>તા. ૨૫ નવેમ્બર ૨૦૨૬</strong><br>
-              કોઈ પણ પ્રસંગ માટે ઉપલબ્ધ
-            </div>
-            <span class="status-available">ખાલી છે 🟢</span>
           </div>
         </div>
-
         <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 હોલ બુકિંગ અરજી કરો</button>
-
-        <div id="hallBookingFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
-          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">હોલ બુકિંગ ફોર્મ</h4>
-          <div class="form-group">
-            <label>આવેદકનું નામ:</label>
-            <input type="text" id="hallApplicantName" placeholder="તમારું પૂરું નામ" required>
-          </div>
-          <div class="form-group">
-            <label>મોબાઇલ નંબર:</label>
-            <input type="tel" id="hallApplicantMobile" placeholder="10 અંકનો નંબર" required>
-          </div>
-          <div class="form-group">
-            <label>જરૂરી તારીખ:</label>
-            <input type="date" id="hallBookingDate" required>
-          </div>
-          <div class="form-group">
-            <label>પ્રસંગની વિગત:</label>
-            <input type="text" id="hallEventDetail" placeholder="દા.ત. શાદી / સગાઈ / મીટિંગ">
-          </div>
-          <button class="btn-submit" onclick="submitHallBooking()">બુકિંગ રિક્વેસ્ટ મોકલો</button>
+        <div id="hallBookingFormBox" style="display:none; margin-top:14px;">
+          <div class="form-group"><label>નામ:</label><input type="text" id="hallApplicantName"></div>
+          <div class="form-group"><label>તારીખ:</label><input type="date" id="hallBookingDate"></div>
+          <button class="btn-submit" onclick="submitHallBooking()">રિક્વેસ્ટ મોકલો</button>
         </div>
-
       </div>
     </div>
 
@@ -879,24 +803,19 @@
   <!-- Bottom Navigation Bar -->
   <div class="bottom-nav">
     <button class="nav-item active" id="btn-home" onclick="openTab('home')">
-      <span class="nav-icon">🏠</span>
-      <span>હોમ</span>
+      <span class="nav-icon">🏠</span><span>હોમ</span>
     </button>
     <button class="nav-item" id="btn-gallery" onclick="openTab('gallery')">
-      <span class="nav-icon">🖼️</span>
-      <span>ગેલેરી</span>
+      <span class="nav-icon">🖼️</span><span>ગેલેરી</span>
     </button>
     <button class="nav-item" id="btn-lavajam" onclick="openTab('lavajam')">
-      <span class="nav-icon">🪪</span>
-      <span>રજિસ્ટર</span>
+      <span class="nav-icon">🪪</span><span>રજિસ્ટર</span>
     </button>
     <button class="nav-item" id="btn-blood" onclick="openTab('blood')">
-      <span class="nav-icon">💧</span>
-      <span>બ્લડ</span>
+      <span class="nav-icon">💧</span><span>બ્લડ</span>
     </button>
     <button class="nav-item" id="btn-marriage" onclick="openTab('marriage')">
-      <span class="nav-icon">🤍</span>
-      <span>મેરેજ</span>
+      <span class="nav-icon">🤍</span><span>મેરેજ</span>
     </button>
   </div>
 
@@ -904,11 +823,9 @@
     let uploadedPhotoUrl = "";
     const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
 
-    // Dynamic Donors Memory
     let bloodDonorsList = [
       { name: "અહમદભાઈ સિપાહી", mobile: "9825011111", bg: "A+", area: "છાયા" },
-      { name: "રફીકભાઈ સિપાહી", mobile: "9898022222", bg: "B+", area: "ઝુરીબાગ" },
-      { name: "સલીમભાઈ સિપાહી", mobile: "9712033333", bg: "O+", area: "બોખીરા" }
+      { name: "રફીકભાઈ સિપાહી", mobile: "9898022222", bg: "B+", area: "ઝુરીબાગ" }
     ];
 
     function openTab(tabName) {
@@ -929,6 +846,45 @@
     function openHisabPage(title) {
       document.getElementById('hisabTitle').innerText = title;
       openTab('hisab-detail');
+      recalculateTotals();
+    }
+
+    /* 🟢 LIVE DIRECT-TOUCH RE-CALCULATION SCRIPT */
+    function recalculateTotals() {
+      let sumAavak = 0;
+      let sumJavak = 0;
+
+      document.querySelectorAll('.val-aavak').forEach(cell => {
+        let val = parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
+        sumAavak += val;
+      });
+
+      document.querySelectorAll('.val-javak').forEach(cell => {
+        let val = parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
+        sumJavak += val;
+      });
+
+      document.getElementById('totalAavakText').innerText = `કુલ આવક: ₹${sumAavak}/-`;
+      document.getElementById('totalJavakText').innerText = `કુલ જાવક: ₹${sumJavak}/-`;
+    }
+
+    function addNewTableRow() {
+      const tbody = document.getElementById('editableTableBody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
+        <td class="editable-cell" contenteditable="true">નવી આવક વિગત</td>
+        <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">0</td>
+        <td class="editable-cell" contenteditable="true">નવી જાવક વિગત</td>
+        <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
+      `;
+      tbody.appendChild(tr);
+      recalculateTotals();
+    }
+
+    function deleteRow(btn) {
+      btn.closest('tr').remove();
+      recalculateTotals();
     }
 
     function showBloodSubTab(type) {
@@ -947,12 +903,9 @@
       const bg = document.getElementById('donorBg').value;
       const area = document.getElementById('donorArea').value;
 
-      if(!name || !mobile) { alert('મહેરબાની કરીને નામ અને મોબાઇલ નંબર ભરો.'); return; }
-
+      if(!name || !mobile) { alert('નામ અને મોબાઇલ નંબર ભરો.'); return; }
       bloodDonorsList.push({ name, mobile, bg, area });
-      alert('આભાર! તમારી રક્તદાતા તરીકે સફળતાપૂર્વક નોંધણી થઈ ગઈ છે.');
-      document.getElementById('donorName').value = '';
-      document.getElementById('donorMobile').value = '';
+      alert('રક્તદાતા નોંધણી સફળ રહી!');
       showBloodSubTab('search');
       searchBlood();
     }
@@ -961,17 +914,12 @@
       const bg = document.getElementById('bgSelect').value;
       const filtered = bloodDonorsList.filter(d => d.bg === bg);
 
-      let html = `<h4 style="font-size:0.85rem; margin-bottom:8px; color:var(--primary);">${bg} બ્લડ ગ્રુપ વાળા રક્તદાતાઓ:</h4>`;
+      let html = `<h4 style="font-size:0.85rem; margin-bottom:8px; color:var(--primary);">${bg} રક્તદાતાઓ:</h4>`;
       if(filtered.length === 0) {
-        html += `<p style="font-size:0.8rem; color:#64748b;">હાલમાં આ બ્લડ ગ્રુપ માટે કોઈ દાતા નોંધાયેલ નથી.</p>`;
+        html += `<p style="font-size:0.8rem; color:#64748b;">કોઈ દાતા મળ્યા નથી.</p>`;
       } else {
         filtered.forEach(d => {
-          html += `
-            <div class="data-item-card">
-              <strong>${d.name} (${d.area})</strong><br>
-              📞 <a href="tel:${d.mobile}" style="color:var(--primary); font-weight:bold;">${d.mobile}</a>
-            </div>
-          `;
+          html += `<div class="data-item-card"><strong>${d.name} (${d.area})</strong><br>📞 <a href="tel:${d.mobile}">${d.mobile}</a></div>`;
         });
       }
       document.getElementById('bloodResult').innerHTML = html;
@@ -984,17 +932,13 @@
       const job = document.getElementById('bioJob').value;
       const contact = document.getElementById('bioContact').value;
 
-      if(!name || !contact) { alert('મહેરબાની કરીને માહિતી યોગ્ય રીતે ભરો.'); return; }
+      if(!name || !contact) { alert('માહિતી ભરો.'); return; }
 
       const card = document.createElement('div');
       card.className = 'data-item-card';
-      card.innerHTML = `
-        <strong style="font-size:0.95rem;">${name} (ઉંમર: ${age})</strong><br>
-        🎓 અભ્યાસ: ${edu} | 💼 વ્યવસાય: ${job}<br>
-        📞 સંપર્ક: ${contact}
-      `;
+      card.innerHTML = `<strong style="font-size:0.95rem;">${name} (${age} વર્ષ)</strong><br>🎓 ${edu} | 💼 ${job}<br>📞 ${contact}`;
       document.getElementById('biodataListContainer').prepend(card);
-      alert('બાયોડેટા સફળતાપૂર્વક ઉમેરાઈ ગયો છે!');
+      alert('બાયોડેટા પબ્લિશ થઈ ગયો!');
       showMarriageSubTab('list');
     }
 
@@ -1003,65 +947,29 @@
       const date = document.getElementById('newsDateInput').value;
       const desc = document.getElementById('newsDescInput').value;
 
-      if(!title) { alert('શીર્ષક લખવું જરૂરી છે.'); return; }
+      if(!title) { alert('શીર્ષક ભરો.'); return; }
 
       const card = document.createElement('div');
       card.className = 'news-card';
-      card.innerHTML = `
-        <div class="news-top">
-          <h3>${title}</h3>
-          <span class="badge-blue">નવું</span>
-        </div>
-        <div class="news-desc">${desc}</div>
-        <div class="news-meta">📅 ${date}</div>
-      `;
+      card.innerHTML = `<div class="news-top"><h3>${title}</h3><span class="badge-blue">નવું</span></div><div class="news-desc">${desc}</div><div class="news-meta">📅 ${date}</div>`;
       document.getElementById('newsListContainer').prepend(card);
-      alert('નવી જાહેરાત પબ્લિશ થઈ ગઈ છે!');
+      alert('જાહેરાત ઉમેરાઈ ગઈ!');
       toggleElement('addNewsFormBox');
-    }
-
-    function addNewHisabEntry() {
-      const type = document.getElementById('hisabTypeSelect').value;
-      const date = document.getElementById('hisabDateInput').value;
-      const detail = document.getElementById('hisabDetailInput').value;
-      const amount = document.getElementById('hisabAmountInput').value;
-
-      if(!detail || !amount) { alert('વિગત અને રકમ ભરો.'); return; }
-
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${amount}/-</strong></td>
-        <td>${detail} (${type})</td>
-        <td>-</td>
-        <td>-</td>
-      `;
-      document.getElementById('hisabTableBody').prepend(tr);
-      alert('ન્યાઝ હિસાબમાં નવી એન્ટ્રી ઉમેરાઈ ગઈ છે!');
-      toggleElement('addHisabFormBox');
     }
 
     function submitHallBooking() {
       const name = document.getElementById('hallApplicantName').value;
-      const mobile = document.getElementById('hallApplicantMobile').value;
       const date = document.getElementById('hallBookingDate').value;
-      const event = document.getElementById('hallEventDetail').value;
 
-      if(!name || !date) { alert('તમામ વિગતો ભરો.'); return; }
+      if(!name || !date) { alert('વિગત ભરો.'); return; }
 
       const card = document.createElement('div');
       card.className = 'data-item-card';
       card.style.display = 'flex';
       card.style.justifyContent = 'space-between';
-      card.style.alignItems = 'center';
-      card.innerHTML = `
-        <div>
-          <strong>તા. ${date}</strong><br>
-          ${event} (અરજદાર: ${name} - ${mobile})
-        </div>
-        <span class="status-booked">અરજી સબમિટ 🟡</span>
-      `;
+      card.innerHTML = `<div><strong>તા. ${date}</strong><br>અરજદાર: ${name}</div><span class="status-booked">બુકિંગ રિક્વેસ્ટ 🟡</span>`;
       document.getElementById('hallBookingStatusList').prepend(card);
-      alert('હોલ બુકિંગ અરજી મોકલાઈ ગઈ છે. કાર્યાલય દ્વારા સંપર્ક કરવામાં આવશે.');
+      alert('હોલ બુકિંગ અરજી મોકલાઈ ગઈ!');
       toggleElement('hallBookingFormBox');
     }
 
@@ -1069,16 +977,13 @@
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-          uploadedPhotoUrl = e.target.result;
-        }
+        reader.onload = function(e) { uploadedPhotoUrl = e.target.result; }
         reader.readAsDataURL(file);
       }
     }
 
     function generateCard(event) {
       event.preventDefault();
-      
       const name = document.getElementById('mName').value;
       const mobile = document.getElementById('mMobile').value;
       const num = document.getElementById('mNumber').value;
@@ -1108,9 +1013,8 @@
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, mobile: mobile, number: num, area: area })
-      }).then(() => console.log('Data saved'))
-        .catch(err => console.error(err));
+        body: JSON.stringify({ name, mobile, number: num, area })
+      });
     }
   </script>
 </body>
