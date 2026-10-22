@@ -609,7 +609,7 @@
         </form>
       </div>
 
-      <!-- A4 Grid Sheet Section with Individual Delete & Clear All -->
+      <!-- A4 Grid Sheet Section -->
       <div class="section-card">
         <div style="overflow: hidden; margin-bottom: 8px;">
           <span class="section-title" style="float: left;">📄 A4 પ્રિન્ટ શીટ (તૈયાર કાર્ડ્સ)</span>
@@ -618,27 +618,66 @@
         <p style="font-size:0.75rem; color:#64748b; margin-bottom: 8px;">અહીં ઉમેરેલા કાર્ડ્સ લાઈવ સેવ રહેશે. નીચે પ્રિન્ટ બટન દબાવીને કલર પ્રિન્ટ કાઢી શકો છો.</p>
 
         <div class="a4-grid-container" id="a4PrintArea">
-          <!-- Dynamic cards will appear here -->
+          <!-- Dynamic cards -->
         </div>
 
         <button class="btn-print-a4" onclick="window.print()">🖨️ A4 કલર પ્રિન્ટ કાઢો (Print All Cards)</button>
       </div>
     </div>
 
-    <!-- TAB 6: HALL BOOKING -->
+    <!-- TAB 6: HALL BOOKING (MULTI-HALL UPDATE) -->
     <div id="page-hall-booking" class="tab-page">
       <div class="section-card">
-        <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ</div>
+        <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ સ્ટેટસ</div>
         <div id="hallBookingStatusList">
           <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>લગ્ન પ્રસંગ</div>
+            <div>
+              <strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>
+              <span style="color:#0284c7; font-weight:600;">🏢 હોલ ૧ (ગ્રાઉન્ડ ફ્લોર)</span><br>
+              <small>પ્રસંગ: લગ્ન પ્રસંગ</small>
+            </div>
             <span class="status-booked">બુક છે 🔴</span>
           </div>
+          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>
+              <span style="color:#16a34a; font-weight:600;">🏢 હોલ ૨ (પ્રથમ માળ)</span>
+            </div>
+            <span class="status-available">ઉપલબ્ધ છે 🟢</span>
+          </div>
+          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>
+              <span style="color:#16a34a; font-weight:600;">🏢 હોલ ૩ (બીજો માળ)</span>
+            </div>
+            <span class="status-available">ઉપલબ્ધ છે 🟢</span>
+          </div>
         </div>
-        <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 બુકિંગ અરજી કરો</button>
-        <div id="hallBookingFormBox" style="display:none; margin-top:14px;">
-          <div class="form-group"><label>નામ:</label><input type="text" id="hallApplicantName"></div>
-          <div class="form-group"><label>તારીખ:</label><input type="date" id="hallBookingDate"></div>
+
+        <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 નવી બુકિંગ અરજી કરો</button>
+        
+        <div id="hallBookingFormBox" style="display:none; margin-top:14px; background:#f8fafc; padding:12px; border-radius:10px; border:1px solid #cbd5e1;">
+          <h4 style="font-size:0.9rem; margin-bottom:10px; color:var(--primary);">હોલ બુકિંગ ફોર્મ</h4>
+          <div class="form-group">
+            <label>અરજદારનું નામ:</label>
+            <input type="text" id="hallApplicantName" placeholder="તમારું નામ લખો">
+          </div>
+          <div class="form-group">
+            <label>બુકિંગ કરવાની તારીખ:</label>
+            <input type="date" id="hallBookingDate">
+          </div>
+          <div class="form-group">
+            <label>કયો હોલ બુક કરવો છે?</label>
+            <select id="hallSelectNumber">
+              <option value="હોલ ૧ (ગ્રાઉન્ડ ફ્લોર)">હોલ ૧ (ગ્રાઉન્ડ ફ્લોર / Ground Floor)</option>
+              <option value="હોલ ૨ (પ્રથમ માળ)">હોલ ૨ (પ્રથમ માળ / 1st Floor)</option>
+              <option value="હોલ ૩ (બીજો માળ)">હોલ ૩ (બીજો માળ / 2nd Floor)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>પ્રસંગની વિગત:</label>
+            <input type="text" id="hallEventDetail" placeholder="દા.ત. લગ્ન પ્રસંગ / સગાઈ">
+          </div>
           <button class="btn-submit" onclick="submitHallBooking()">રિક્વેસ્ટ મોકલો</button>
         </div>
       </div>
@@ -785,16 +824,37 @@
       toggleElement('addNewsFormBox');
     }
 
+    /* Multi-Hall Booking Submission Logic */
     function submitHallBooking() {
       const name = document.getElementById('hallApplicantName').value;
       const date = document.getElementById('hallBookingDate').value;
-      if(!name || !date) { alert('વિગત ભરો.'); return; }
+      const selectedHall = document.getElementById('hallSelectNumber').value;
+      const detail = document.getElementById('hallEventDetail').value || 'પ્રસંગ';
+
+      if(!name || !date) { alert('કૃપા કરીને નામ અને તારીખ ભરો.'); return; }
+
       const card = document.createElement('div');
       card.className = 'data-item-card';
-      card.style.display = 'flex'; card.style.justifyContent = 'space-between';
-      card.innerHTML = `<div><strong>તા. ${date}</strong><br>અરજદાર: ${name}</div><span class="status-booked">બુકિંગ રિક્વેસ્ટ 🟡</span>`;
+      card.style.display = 'flex'; 
+      card.style.justifyContent = 'space-between';
+      card.style.alignItems = 'center';
+      
+      card.innerHTML = `
+        <div>
+          <strong>તા. ${date}</strong><br>
+          <span style="color:#0284c7; font-weight:600;">🏢 ${selectedHall}</span><br>
+          <small>અરજદાર: ${name} (${detail})</small>
+        </div>
+        <span class="status-booked">બુકિંગ રિક્વેસ્ટ 🟡</span>
+      `;
+
       document.getElementById('hallBookingStatusList').prepend(card);
-      alert('રિક્વેસ્ટ મોકલાઈ ગઈ!');
+      alert(`${selectedHall} માટે રિક્વેસ્ટ મોકલાઈ ગઈ!`);
+
+      // Clear fields & close form
+      document.getElementById('hallApplicantName').value = "";
+      document.getElementById('hallBookingDate').value = "";
+      document.getElementById('hallEventDetail').value = "";
       toggleElement('hallBookingFormBox');
     }
 
