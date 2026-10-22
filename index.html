@@ -144,7 +144,7 @@
       background: var(--primary); color: white; margin: -10px -10px 8px -10px; padding: 8px 6px;
       display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #facc15;
     }
-    .card-header-logo { width: 30px; height: 30px; object-fit: contain; border-radius: 50%; background: white; padding: 1px; }
+    .card-header-logo { width: 32px; height: 32px; object-fit: cover; border-radius: 50%; background: white; padding: 1px; border: 1px solid #facc15; }
     .card-header-title { text-align: center; flex: 1; padding: 0 4px; }
     .card-header-title h3 { font-size: 0.75rem; font-weight: bold; color: #ffffff; }
     .card-header-title p { font-size: 0.55rem; color: #facc15; margin-top: 1px; }
@@ -344,7 +344,7 @@
       </div>
     </div>
 
-    <!-- TAB: DONATION / SAHAYOG (NEW FEATURE) -->
+    <!-- TAB: DONATION / SAHAYOG -->
     <div id="page-donation" class="tab-page">
       <div class="section-card">
         <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
@@ -353,10 +353,12 @@
           પોરબંદર સમાજના વિકાસ કાર્યો, ન્યાઝ ફાળો અને ઈમરજન્સી સેવાઓ માટે તમારો સહયોગ નીચે આપેલ QR Code અથવા બેંક એકાઉન્ટમાં સીધો ટ્રાન્સફર કરી શકો છો.
         </p>
 
-        <!-- UPI QR CODE DISPLAY -->
+        <!-- UPI QR CODE DISPLAY WITH CORRECT LOGO -->
         <div class="qr-box">
           <h4 style="font-size:0.88rem; color:var(--primary); margin-bottom:6px;">📲 GPay / PhonePe / Paytm QR Code</h4>
-          <img src="watermarked_img_5697005019436083044.png" alt="Samaj QR Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SipaySamajPorbandar'">
+          <img src="1000385967.png" alt="Samaj Lion Logo" style="max-width:140px; margin-bottom:8px;">
+          <br>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SipaySamajPorbandar" alt="Samaj QR Code">
           <p style="font-size:0.75rem; color:#64748b; margin-top:6px;">UPI ID: <strong>sipaysamaj@upi</strong></p>
         </div>
 
@@ -639,7 +641,6 @@
       toggleElement('addNewsFormBox');
     }
 
-    /* Multi-Hall Selection Submit Function */
     function submitHallBooking() {
       const name = document.getElementById('hallApplicantName').value;
       const date = document.getElementById('hallBookingDate').value;
@@ -711,6 +712,7 @@
       });
     }
 
+    /* Render ID Cards in Grid using Lion Logo File Name 1000385967.png */
     function renderCards() {
       const container = document.getElementById('a4PrintArea');
       container.innerHTML = "";
@@ -726,12 +728,12 @@
         const cardHtml = `
           <div class="id-card-item">
             <div class="id-card-header">
-              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
+              <img src="1000385967.png" class="card-header-logo" alt="Lion Logo">
               <div class="card-header-title">
                 <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
                 <p>ડિજિટલ સભ્ય ઓળખપત્ર</p>
               </div>
-              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
+              <img src="1000385967.png" class="card-header-logo" alt="Lion Logo">
             </div>
 
             <div class="id-card-body">
