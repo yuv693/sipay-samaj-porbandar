@@ -24,7 +24,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 90px; }
 
-    /* Top App Header */
+    /* App Header */
     .app-header {
       background: var(--primary);
       color: white;
@@ -69,7 +69,6 @@
 
     .container { max-width: 500px; margin: 0 auto; padding: 14px; }
 
-    /* Tab Page Animation */
     .tab-page { display: none; }
     .tab-page.active { display: block; animation: fadeIn 0.25s ease-in-out; }
 
@@ -93,17 +92,10 @@
       background: linear-gradient(135deg, #1e3a8a, #0f172a);
       color: white;
     }
-    .hero-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .hero-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-overlay {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       padding: 16px;
       background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
     }
@@ -119,13 +111,7 @@
     }
     .hero-overlay h2 { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 4px; }
     .hero-location { font-size: 0.8rem; opacity: 0.9; color: #cbd5e1; }
-
-    .hero-body {
-      padding: 16px;
-      font-size: 0.85rem;
-      color: #475569;
-      line-height: 1.5;
-    }
+    .hero-body { padding: 16px; font-size: 0.85rem; color: #475569; line-height: 1.5; }
 
     /* Grid Quick Actions */
     .quick-actions {
@@ -144,24 +130,19 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
     .icon-box {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       margin: 0 auto 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem;
     }
     .bg-blue { background: #e0f2fe; color: #0284c7; }
     .bg-green { background: #dcfce7; color: #16a34a; }
     .bg-red { background: #ffe4e6; color: #e11d48; }
     .bg-yellow { background: #fef9c3; color: #ca8a04; }
-
     .action-btn span { font-size: 0.75rem; font-weight: 600; color: #334155; }
 
     /* Niyaz Hisab Section */
-    .niyaz-section { margin-bottom: 16px; }
     .niyaz-card {
       background: white;
       border: 1px solid #cbd5e1;
@@ -173,21 +154,11 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
     .niyaz-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); }
-    .niyaz-card p { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
-    .btn-view-hisab {
-      background: #e0f2fe;
-      color: #0284c7;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 0.75rem;
-    }
+    .btn-view-hisab { background: #e0f2fe; color: #0284c7; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; font-size: 0.75rem; }
 
-    /* Direct Touch Editable Table Styling */
+    /* Direct Touch Editable Table */
     .hisab-table-container {
       background: white;
       border-radius: 12px;
@@ -196,40 +167,12 @@
       margin-top: 10px;
       overflow-x: auto;
     }
-    .hisab-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-      text-align: left;
-    }
-    .hisab-table th, .hisab-table td {
-      border: 1px solid #94a3b8;
-      padding: 8px 6px;
-    }
-    .hisab-table th {
-      background: #e2e8f0;
-      color: #0f172a;
-      font-weight: bold;
-      text-align: center;
-    }
-    .editable-cell {
-      background-color: #ffffff;
-      outline: none;
-      transition: background 0.2s;
-    }
-    .editable-cell:focus {
-      background-color: #fef08a;
-      box-shadow: inset 0 0 0 2px #ca8a04;
-    }
-    .edit-hint {
-      font-size: 0.73rem;
-      color: #0284c7;
-      background: #e0f2fe;
-      padding: 6px 10px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
+    .hisab-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left; }
+    .hisab-table th, .hisab-table td { border: 1px solid #94a3b8; padding: 8px 6px; }
+    .hisab-table th { background: #e2e8f0; color: #0f172a; font-weight: bold; text-align: center; }
+    .editable-cell { background-color: #ffffff; outline: none; }
+    .editable-cell:focus { background-color: #fef08a; box-shadow: inset 0 0 0 2px #ca8a04; }
+    .edit-hint { font-size: 0.73rem; color: #0284c7; background: #e0f2fe; padding: 6px 10px; border-radius: 6px; margin-bottom: 10px; font-weight: 600; }
 
     /* Section Cards */
     .section-card {
@@ -255,20 +198,103 @@
     .news-desc { font-size: 0.8rem; color: #64748b; margin: 6px 0 10px; }
     .news-meta { font-size: 0.75rem; color: #2563eb; font-weight: 600; }
 
-    /* Contact Card & Buttons */
-    .contact-card {
-      background: var(--primary);
-      color: white;
-      border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 16px;
-    }
+    /* Contact Card */
+    .contact-card { background: var(--primary); color: white; border-radius: 16px; padding: 18px; margin-bottom: 16px; }
     .contact-card h3 { font-size: 1rem; color: #facc15; margin-bottom: 6px; }
     .contact-card p { font-size: 0.8rem; opacity: 0.9; margin-bottom: 14px; }
     .contact-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
-    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
-    .btn-group-link { background: #0284c7; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; width: 100%; cursor: pointer; text-decoration: none; text-align: center; display: block; }
+    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; text-decoration: none; text-align: center; display: block; }
+    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; text-decoration: none; text-align: center; display: block; }
+    .btn-group-link { background: #0284c7; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; width: 100%; text-decoration: none; text-align: center; display: block; }
+
+    /* Forms & Inputs */
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: #334155; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; outline: none; }
+    
+    .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
+    .btn-whatsapp-share { background: #25d366; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+    .btn-print-a4 { background: #0284c7; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 8px; }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
+
+    /* Dynamic Item Cards */
+    .data-item-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 10px; font-size: 0.85rem; }
+    .data-item-card strong { color: var(--primary); }
+    .status-booked { background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
+    .status-available { background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
+
+    /* ID Card Design with Dual Logos */
+    .id-card-wrapper { display: none; margin-top: 20px; }
+    .id-card {
+      background: linear-gradient(135deg, #ffffff, #f8fafc);
+      border: 3px solid var(--primary);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .id-card-header {
+      background: var(--primary);
+      color: white;
+      margin: -16px -16px 14px -16px;
+      padding: 12px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #facc15;
+    }
+    .card-header-logo {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .card-header-title { text-align: center; flex: 1; padding: 0 6px; }
+    .card-header-title h3 { font-size: 0.95rem; font-weight: bold; color: #ffffff; }
+    .card-header-title p { font-size: 0.68rem; opacity: 0.9; color: #facc15; margin-top: 2px; }
+
+    .id-card-body { display: flex; gap: 12px; align-items: center; }
+    .id-photo-box {
+      width: 85px; height: 100px;
+      background: #e2e8f0;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .id-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+    .id-details { font-size: 0.85rem; color: #1e293b; line-height: 1.6; }
+    .id-details strong { color: var(--primary); }
+    .id-number-tag {
+      background: #fef9c3;
+      border: 1px dashed #ca8a04;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 6px;
+      color: #854d0e;
+    }
+    .id-card-footer {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+    .verified-badge { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
+
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; height: 130px; background: #e2e8f0; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
     /* Developer Footer */
     .dev-footer-card {
@@ -280,113 +306,10 @@
       margin-bottom: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
       border: 1px solid #312e81;
-      position: relative;
-      overflow: hidden;
     }
-    .dev-footer-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #facc15, #38bdf8, #facc15);
-    }
-    .mizan-logo-img {
-      max-width: 160px;
-      height: auto;
-      margin: 0 auto 8px auto;
-      display: block;
-      border-radius: 8px;
-    }
-    .dev-footer-card p { font-size: 0.78rem; color: #94a3b8; letter-spacing: 0.5px; }
+    .mizan-logo-img { max-width: 160px; height: auto; margin: 0 auto 8px auto; display: block; border-radius: 8px; }
+    .dev-footer-card p { font-size: 0.78rem; color: #94a3b8; }
     .dev-footer-card strong { color: #f8fafc; font-weight: 700; }
-
-    /* Forms & Inputs */
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: #334155; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; outline: none; }
-    .btn-submit { background: var(--secondary); color: white; border: none; padding: 10px; border-radius: 8px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 4px; }
-    .btn-danger { background: var(--accent-red); }
-    .btn-secondary { background: #64748b; color: white; }
-    .btn-delete { background: #ef4444; color: white; border: none; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
-
-    /* Dynamic Item Cards */
-    .data-item-card {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
-      font-size: 0.85rem;
-    }
-    .data-item-card strong { color: var(--primary); }
-
-    .status-booked { background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
-    .status-available { background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
-
-    /* ID Card Design */
-    .id-card-wrapper { display: none; margin-top: 20px; }
-    .id-card {
-      background: linear-gradient(135deg, #ffffff, #f8fafc);
-      border: 2px solid var(--primary);
-      border-radius: 14px;
-      padding: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-    .id-card-header {
-      background: var(--primary);
-      color: white;
-      margin: -16px -16px 14px -16px;
-      padding: 12px;
-      text-align: center;
-      border-bottom: 3px solid #facc15;
-    }
-    .id-card-header h3 { font-size: 0.95rem; font-weight: bold; }
-    .id-card-header p { font-size: 0.7rem; opacity: 0.9; }
-
-    .id-card-body { display: flex; gap: 12px; align-items: center; }
-    .id-photo-box {
-      width: 80px;
-      height: 95px;
-      background: #e2e8f0;
-      border: 2px solid #cbd5e1;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .id-photo-box img { width: 100%; height: 100%; object-fit: cover; }
-    .id-details { font-size: 0.82rem; color: #1e293b; line-height: 1.6; }
-    .id-details strong { color: var(--primary); }
-    .id-number-tag {
-      background: #fef9c3;
-      border: 1px dashed #ca8a04;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 4px;
-      color: #854d0e;
-    }
-    .id-card-footer {
-      margin-top: 14px;
-      padding-top: 8px;
-      border-top: 1px solid #e2e8f0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
-      color: #64748b;
-    }
-    .verified-badge { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
-
-    /* Gallery Grid */
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .gallery-item { border-radius: 12px; overflow: hidden; height: 130px; background: #e2e8f0; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
     /* Bottom Navigation Bar */
     .bottom-nav {
@@ -401,20 +324,17 @@
       margin: 0 auto;
       z-index: 1000;
     }
-    .nav-item {
-      border: none;
-      background: none;
-      color: #64748b;
-      font-size: 0.65rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      cursor: pointer;
-      flex: 1;
-    }
+    .nav-item { border: none; background: none; color: #64748b; font-size: 0.65rem; display: flex; flex-direction: column; align-items: center; cursor: pointer; flex: 1; }
     .nav-item.active { color: var(--primary); font-weight: bold; }
     .nav-icon { font-size: 1.1rem; }
+
+    /* A4 / Print Format Styling */
+    @media print {
+      body * { visibility: hidden; }
+      .id-card-wrapper, .id-card-wrapper * { visibility: visible; }
+      .id-card-wrapper { position: absolute; left: 0; top: 0; width: 100%; display: block !important; }
+      .btn-whatsapp-share, .btn-print-a4 { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -469,33 +389,29 @@
         </div>
       </div>
 
-      <!-- 3 NIYAZ HISAB BOXES SECTION -->
+      <!-- Niyaz Hisab Boxes -->
       <div class="section-card">
         <div class="section-title">📊 ન્યાઝ હિસાબ - આવક & જાવક</div>
-        <div class="niyaz-section">
-          <div class="niyaz-card" onclick="openHisabPage('મોહર્રમ શરીફ ન્યાઝ હિસાબ')">
-            <div>
-              <h3>૧. મોહર્રમ શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
-            </div>
-            <button class="btn-view-hisab">જુઓ ➔</button>
+        <div class="niyaz-card" onclick="openHisabPage('મોહર્રમ શરીફ ન્યાઝ હિસાબ')">
+          <div>
+            <h3>૧. મોહર્રમ શરીફ ન્યાઝ</h3>
+            <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
           </div>
-
-          <div class="niyaz-card" onclick="openHisabPage('બારમી શરીફ ન્યાઝ હિસાબ')">
-            <div>
-              <h3>૨. બારમી શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
-            </div>
-            <button class="btn-view-hisab">જુઓ ➔</button>
+          <button class="btn-view-hisab">જુઓ ➔</button>
+        </div>
+        <div class="niyaz-card" onclick="openHisabPage('બારમી શરીફ ન્યાઝ હિસાબ')">
+          <div>
+            <h3>૨. બારમી શરીફ ન્યાઝ</h3>
+            <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
           </div>
-
-          <div class="niyaz-card" onclick="openHisabPage('અગિયારમી શરીફ ન્યાઝ હિસાબ')">
-            <div>
-              <h3>૩. અગિયારમી શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
-            </div>
-            <button class="btn-view-hisab">જુઓ ➔</button>
+          <button class="btn-view-hisab">જુઓ ➔</button>
+        </div>
+        <div class="niyaz-card" onclick="openHisabPage('અગિયારમી શરીફ ન્યાઝ હિસાબ')">
+          <div>
+            <h3>૩. અગિયારમી શરીફ ન્યાઝ</h3>
+            <p>આવક અને જાવકનો સંપુર્ણ હિસાબ</p>
           </div>
+          <button class="btn-view-hisab">જુઓ ➔</button>
         </div>
       </div>
 
@@ -512,23 +428,12 @@
             <div class="news-meta">📅 તા. ૨૫ ડિસેમ્બર ૨૦૨૬ • સમય: સાંજે ૫:૦૦ વાગ્યે</div>
           </div>
         </div>
-
         <button class="btn-submit btn-secondary" onclick="toggleElement('addNewsFormBox')">➕ નવી જાહેરાત ઉમેરો</button>
-
         <div id="addNewsFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
           <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવી જાહેરાત ઉમેરો</h4>
-          <div class="form-group">
-            <label>કાર્યક્રમનું શીર્ષક:</label>
-            <input type="text" id="newsTitleInput" placeholder="દા.ત. સ્નેહ મિલન ૨૦૨૬">
-          </div>
-          <div class="form-group">
-            <label>તારીખ & સમય:</label>
-            <input type="text" id="newsDateInput" placeholder="દા.ત. ૨૫ ડિસેમ્બર, સાંજે ૫ વાગ્યે">
-          </div>
-          <div class="form-group">
-            <label>વિગત:</label>
-            <textarea id="newsDescInput" rows="2" placeholder="કાર્યક્રમની વિગત..."></textarea>
-          </div>
+          <div class="form-group"><label>શીર્ષક:</label><input type="text" id="newsTitleInput" placeholder="સ્નેહ મિલન ૨૦૨૬"></div>
+          <div class="form-group"><label>તારીખ:</label><input type="text" id="newsDateInput" placeholder="૨૫ ડિસેમ્બર"></div>
+          <div class="form-group"><label>વિગત:</label><textarea id="newsDescInput" rows="2"></textarea></div>
           <button class="btn-submit" onclick="addNewNewsEntry()">પબ્લિશ કરો</button>
         </div>
       </div>
@@ -539,32 +444,25 @@
         <p>કોમ્યુનિટી હોલ બુકિંગ અને માહિતી માટે સંપર્ક કરો.</p>
         <div class="contact-btns">
           <a class="btn-call" href="tel:9825000000">📞 કોલ કરો</a>
-          <a class="btn-whatsapp" href="https://wa.me/919825000000?text=Salam%20Porbandar%20Sipay%20Samaj" target="_blank">💬 વોટ્સએપ</a>
+          <a class="btn-whatsapp" href="https://wa.me/919825000000?text=Salam" target="_blank">💬 વોટ્સએપ</a>
         </div>
         <a class="btn-group-link" href="https://chat.whatsapp.com/ExampleGroupLink" target="_blank">📲 સિપાહી સમાજ વોટ્સએપ ગ્રુપમાં જોડાઓ</a>
       </div>
 
-      <!-- DEVELOPER FOOTER CARD -->
+      <!-- Developer Footer -->
       <div class="dev-footer-card">
         <img src="IMG_20261021_144259.png" alt="MIZAN Logo" class="mizan-logo-img">
         <p>Crafted & Developed by <strong>YUNUS IBRAHEM MALEK</strong></p>
       </div>
-
     </div>
 
-    <!-- TAB: DIRECT TOUCH EDITABLE NIYAZ HISAB PAGE -->
+    <!-- TAB: HISAB DETAIL (Direct Touch Editable) -->
     <div id="page-hisab-detail" class="tab-page">
       <div class="section-card">
         <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
-        
         <div class="section-title" id="hisabTitle">મોહર્રમ શરીફ ન્યાઝ હિસાબ</div>
-
-        <div class="edit-hint">
-          💡 <strong>ડાયરેક્ટ એડિટ સિસ્ટમ:</strong> કોઈપણ રકમ અથવા નામ પર ટચ (Click) કરીને સીધું લખો. સરવાળો આપોઆપ બદલાઈ જશે!
-        </div>
-
-        <button class="btn-submit" onclick="addNewTableRow()" style="margin-bottom:10px;">➕ નવી ખાલી રો (Row) ઉમેરો</button>
-
+        <div class="edit-hint">💡 કોઈપણ રકમ કે નામ પર ટચ કરીને સીધું એડિટ કરો, સરવાળો આપોઆપ બદલાશે!</div>
+        <button class="btn-submit" onclick="addNewTableRow()" style="margin-bottom:10px;">➕ નવી રો (Row) ઉમેરો</button>
         <div class="hisab-table-container">
           <table class="hisab-table">
             <thead>
@@ -575,7 +473,6 @@
               </tr>
             </thead>
             <tbody id="editableTableBody">
-              <!-- Full Original Hisab Details From Image -->
               <tr>
                 <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">215473</td>
                 <td class="editable-cell" contenteditable="true">જમાતના સભ્યોનો ફાળો</td>
@@ -604,44 +501,15 @@
                 <td class="editable-cell" contenteditable="true">સેવના ૪૦ કિલો ૧૭૦ ભાવ</td>
                 <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
               </tr>
-              <tr>
-                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
-                <td class="editable-cell" contenteditable="true">-</td>
-                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">5565</td>
-                <td class="editable-cell" contenteditable="true">તેલના ડબ્બા ૨ નંગ X ૨૭૮૦ ભાવ</td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
-              </tr>
-              <tr>
-                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
-                <td class="editable-cell" contenteditable="true">-</td>
-                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">2900</td>
-                <td class="editable-cell" contenteditable="true">લસણ ૨૦ કિલો ૧૪૫ ભાવ</td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
-              </tr>
-              <tr>
-                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">21920</td>
-                <td class="editable-cell" contenteditable="true">ઘટ આવેલ</td>
-                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">2600</td>
-                <td class="editable-cell" contenteditable="true">બકાલાના</td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
-              </tr>
-              <tr>
-                <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
-                <td class="editable-cell" contenteditable="true">-</td>
-                <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">6450</td>
-                <td class="editable-cell" contenteditable="true">દહી તથા ધોરવાના</td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
-              </tr>
             </tbody>
             <tfoot>
               <tr style="background:#fef9c3; font-weight:bold;">
-                <td colspan="2" id="totalAavakText" style="color:#15803d; font-size:0.85rem; padding:8px;">કુલ આવક: ₹252025/-</td>
-                <td colspan="3" id="totalJavakText" style="color:#b91c1c; font-size:0.85rem; padding:8px;">કુલ જાવક: ₹224385/-</td>
+                <td colspan="2" id="totalAavakText" style="color:#15803d; font-size:0.85rem; padding:8px;">કુલ આવક: ₹0/-</td>
+                <td colspan="3" id="totalJavakText" style="color:#b91c1c; font-size:0.85rem; padding:8px;">કુલ જાવક: ₹0/-</td>
               </tr>
             </tfoot>
           </table>
         </div>
-
       </div>
     </div>
 
@@ -650,9 +518,7 @@
       <div class="section-card">
         <div class="section-title">🖼️ સમાજ ફોટો ગેલેરી</div>
         <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="1000385514.jpg" alt="Hall">
-          </div>
+          <div class="gallery-item"><img src="1000385514.jpg" alt="Hall"></div>
         </div>
       </div>
     </div>
@@ -665,38 +531,19 @@
           <button class="btn-submit" style="flex:1;" onclick="showBloodSubTab('search')">🔍 રક્તદાતા શોધો</button>
           <button class="btn-submit btn-secondary" style="flex:1;" onclick="showBloodSubTab('register')">➕ રક્તદાતા બનો</button>
         </div>
-
         <div id="bloodSearchBox">
           <div class="form-group">
-            <label>જરૂરી બ્લડ ગ્રુપ પસંદ કરો:</label>
-            <select id="bgSelect">
-              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option><option>A-</option><option>B-</option><option>AB-</option>
-            </select>
+            <label>બ્લડ ગ્રુપ પસંદ કરો:</label>
+            <select id="bgSelect"><option>A+</option><option>B+</option><option>O+</option><option>AB+</option></select>
           </div>
-          <button class="btn-submit btn-danger" onclick="searchBlood()">રક્તદાતા ની યાદી જુઓ</button>
+          <button class="btn-submit btn-danger" onclick="searchBlood()">યાદી જુઓ</button>
           <div id="bloodResult" style="margin-top:15px;"></div>
         </div>
-
         <div id="bloodRegisterBox" style="display:none;">
-          <h4 style="font-size:0.9rem; margin-bottom:10px; color:var(--primary);">નવા રક્તદાતા નોંધણી</h4>
-          <div class="form-group">
-            <label>રક્તદાતાનું નામ:</label>
-            <input type="text" id="donorName" placeholder="તમારું નામ">
-          </div>
-          <div class="form-group">
-            <label>મોબાઇલ નંબર:</label>
-            <input type="tel" id="donorMobile" placeholder="10 અંકનો નંબર">
-          </div>
-          <div class="form-group">
-            <label>બ્લડ ગ્રુપ:</label>
-            <select id="donorBg">
-              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>પોરબંદર નો વિસ્તાર:</label>
-            <input type="text" id="donorArea" placeholder="દા.ત. છાયા / બોખીરા">
-          </div>
+          <div class="form-group"><label>નામ:</label><input type="text" id="donorName"></div>
+          <div class="form-group"><label>મોબાઇલ:</label><input type="tel" id="donorMobile"></div>
+          <div class="form-group"><label>ગ્રુપ:</label><select id="donorBg"><option>A+</option><option>B+</option><option>O+</option></select></div>
+          <div class="form-group"><label>વિસ્તાર:</label><input type="text" id="donorArea"></div>
           <button class="btn-submit btn-danger" onclick="registerBloodDonor()">નોંધણી કરો</button>
         </div>
       </div>
@@ -708,20 +555,13 @@
         <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ બાયોડેટા</div>
         <div style="display:flex; gap:8px; margin-bottom:14px;">
           <button class="btn-submit" style="flex:1;" onclick="showMarriageSubTab('list')">📋 બાયોડેટા જુઓ</button>
-          <button class="btn-submit btn-secondary" style="flex:1;" onclick="showMarriageSubTab('form')">➕ નવો બાયોડેટા ઉમેરો</button>
+          <button class="btn-submit btn-secondary" style="flex:1;" onclick="showMarriageSubTab('form')">➕ ઉમેરો</button>
         </div>
-
         <div id="marriageListBox">
-          <div id="biodataListContainer">
-            <div class="data-item-card">
-              <strong style="font-size:0.95rem;">અહમદ સિપાહી (ઉંમર: ૨૪)</strong><br>
-              🎓 અભ્યાસ: B.Com | 💼 વ્યવસાય: પ્રાઇવેટ જોબ<br>
-              📍 વિસ્તાર: છાયા, પોરબંદર<br>
-              📞 સંપર્ક: 9825012345
-            </div>
+          <div id="biodataListContainer" class="data-item-card">
+            <strong>અહમદ સિપાહી (૨૪ વર્ષ)</strong><br>🎓 B.Com | 📞 9825012345
           </div>
         </div>
-
         <div id="marriageFormBox" style="display:none;">
           <div class="form-group"><label>નામ:</label><input type="text" id="bioName"></div>
           <div class="form-group"><label>ઉંમર:</label><input type="number" id="bioAge"></div>
@@ -733,14 +573,14 @@
       </div>
     </div>
 
-    <!-- TAB 5: LAVAJAM CARD GENERATOR -->
+    <!-- TAB 5: LAVAJAM CARD GENERATOR (Dual Logo & WhatsApp) -->
     <div id="page-lavajam" class="tab-page">
       <div class="section-card">
         <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & ડિજિટલ આઈડી કાર્ડ</div>
         <form id="lavajamForm" onsubmit="generateCard(event)">
-          <div class="form-group"><label>સભ્યનું પૂરું નામ:</label><input type="text" id="mName" required></div>
-          <div class="form-group"><label>સભ્ય મોબાઇલ નંબર:</label><input type="tel" id="mMobile" pattern="[0-9]{10}" required></div>
-          <div class="form-group"><label>સભ્ય નંબર (Member ID):</label><input type="text" id="mNumber" required></div>
+          <div class="form-group"><label>સભ્યનું પૂરું નામ:</label><input type="text" id="mName" placeholder="અહમદભાઈ સિપાહી" required></div>
+          <div class="form-group"><label>સભ્ય મોબાઇલ નંબર:</label><input type="tel" id="mMobile" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required></div>
+          <div class="form-group"><label>સભ્ય નંબર (Member ID):</label><input type="text" id="mNumber" placeholder="AB835" required></div>
           <div class="form-group">
             <label>પોરબંદરનો વિસ્તાર:</label>
             <select id="mArea" required>
@@ -752,12 +592,18 @@
           <button type="submit" class="btn-submit">સેવ કરો & ડિજિટલ આઈડી કાર્ડ બનાવો</button>
         </form>
 
+        <!-- Card Preview with Dual Logos -->
         <div class="id-card-wrapper" id="idCardWrapper">
-          <div class="id-card">
+          <div class="id-card" id="printableCard">
             <div class="id-card-header">
-              <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
-              <p>ડિજિટલ સભ્ય ઓળખપત્ર (Member ID Card)</p>
+              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
+              <div class="card-header-title">
+                <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
+                <p>ડિજિટલ સભ્ય ઓળખપત્ર (Member ID Card)</p>
+              </div>
+              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
             </div>
+
             <div class="id-card-body">
               <div class="id-photo-box">
                 <img id="cardUserPhoto" src="" alt="સભ્યનો ફોટો" style="display:none;">
@@ -770,26 +616,36 @@
                 <div class="id-number-tag">સભ્ય નં: <span id="cardNumber">-</span></div>
               </div>
             </div>
+
             <div class="id-card-footer">
               <span>📍 પોરબંદર, ગુજરાત</span>
               <span class="verified-badge">✓ પ્રમાણિત સભ્ય</span>
             </div>
           </div>
+
+          <!-- Share & Print Buttons -->
+          <a id="whatsappShareBtn" href="#" target="_blank" class="btn-whatsapp-share">
+            📲 વોટ્સએપ પર સભ્યને કાર્ડ મોકલો
+          </a>
+          <button class="btn-print-a4" onclick="window.print()">
+            🖨️ A4 કલર પ્રિન્ટ કાઢો (Print Card)
+          </button>
         </div>
+
       </div>
     </div>
 
     <!-- TAB 6: HALL BOOKING -->
     <div id="page-hall-booking" class="tab-page">
       <div class="section-card">
-        <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ & તારીખ ઉપલબ્ધતા</div>
+        <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ</div>
         <div id="hallBookingStatusList">
           <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>લગ્ન પ્રસંગ (બુક છે)</div>
+            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>લગ્ન પ્રસંગ</div>
             <span class="status-booked">બુક છે 🔴</span>
           </div>
         </div>
-        <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 હોલ બુકિંગ અરજી કરો</button>
+        <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 બુકિંગ અરજી કરો</button>
         <div id="hallBookingFormBox" style="display:none; margin-top:14px;">
           <div class="form-group"><label>નામ:</label><input type="text" id="hallApplicantName"></div>
           <div class="form-group"><label>તારીખ:</label><input type="date" id="hallBookingDate"></div>
@@ -824,8 +680,7 @@
     const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
 
     let bloodDonorsList = [
-      { name: "અહમદભાઈ સિપાહી", mobile: "9825011111", bg: "A+", area: "છાયા" },
-      { name: "રફીકભાઈ સિપાહી", mobile: "9898022222", bg: "B+", area: "ઝુરીબાગ" }
+      { name: "અહમદભાઈ સિપાહી", mobile: "9825011111", bg: "A+", area: "છાયા" }
     ];
 
     function openTab(tabName) {
@@ -849,21 +704,16 @@
       recalculateTotals();
     }
 
-    /* 🟢 LIVE DIRECT-TOUCH RE-CALCULATION SCRIPT */
+    /* Live Direct-Touch Hisab Calculation */
     function recalculateTotals() {
       let sumAavak = 0;
       let sumJavak = 0;
-
       document.querySelectorAll('.val-aavak').forEach(cell => {
-        let val = parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
-        sumAavak += val;
+        sumAavak += parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
       });
-
       document.querySelectorAll('.val-javak').forEach(cell => {
-        let val = parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
-        sumJavak += val;
+        sumJavak += parseFloat(cell.innerText.replace(/[^0-9.]/g, '')) || 0;
       });
-
       document.getElementById('totalAavakText').innerText = `કુલ આવક: ₹${sumAavak}/-`;
       document.getElementById('totalJavakText').innerText = `કુલ જાવક: ₹${sumJavak}/-`;
     }
@@ -873,9 +723,9 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td class="editable-cell val-aavak" contenteditable="true" oninput="recalculateTotals()">0</td>
-        <td class="editable-cell" contenteditable="true">નવી આવક વિગત</td>
+        <td class="editable-cell" contenteditable="true">નવી આવક</td>
         <td class="editable-cell val-javak" contenteditable="true" oninput="recalculateTotals()">0</td>
-        <td class="editable-cell" contenteditable="true">નવી જાવક વિગત</td>
+        <td class="editable-cell" contenteditable="true">નવી જાવક</td>
         <td><button class="btn-delete" onclick="deleteRow(this)">x</button></td>
       `;
       tbody.appendChild(tr);
@@ -902,26 +752,18 @@
       const mobile = document.getElementById('donorMobile').value;
       const bg = document.getElementById('donorBg').value;
       const area = document.getElementById('donorArea').value;
-
-      if(!name || !mobile) { alert('નામ અને મોબાઇલ નંબર ભરો.'); return; }
+      if(!name || !mobile) { alert('નામ અને મોબાઇલ ભરો.'); return; }
       bloodDonorsList.push({ name, mobile, bg, area });
-      alert('રક્તદાતા નોંધણી સફળ રહી!');
+      alert('રક્તદાતા નોંધણી સફળ!');
       showBloodSubTab('search');
-      searchBlood();
     }
 
     function searchBlood() {
       const bg = document.getElementById('bgSelect').value;
       const filtered = bloodDonorsList.filter(d => d.bg === bg);
-
       let html = `<h4 style="font-size:0.85rem; margin-bottom:8px; color:var(--primary);">${bg} રક્તદાતાઓ:</h4>`;
-      if(filtered.length === 0) {
-        html += `<p style="font-size:0.8rem; color:#64748b;">કોઈ દાતા મળ્યા નથી.</p>`;
-      } else {
-        filtered.forEach(d => {
-          html += `<div class="data-item-card"><strong>${d.name} (${d.area})</strong><br>📞 <a href="tel:${d.mobile}">${d.mobile}</a></div>`;
-        });
-      }
+      if(filtered.length === 0) { html += `<p style="font-size:0.8rem; color:#64748b;">કોઈ દાતા નથી.</p>`; }
+      else { filtered.forEach(d => { html += `<div class="data-item-card"><strong>${d.name} (${d.area})</strong><br>📞 <a href="tel:${d.mobile}">${d.mobile}</a></div>`; }); }
       document.getElementById('bloodResult').innerHTML = html;
     }
 
@@ -929,16 +771,13 @@
       const name = document.getElementById('bioName').value;
       const age = document.getElementById('bioAge').value;
       const edu = document.getElementById('bioEdu').value;
-      const job = document.getElementById('bioJob').value;
       const contact = document.getElementById('bioContact').value;
-
-      if(!name || !contact) { alert('માહિતી ભરો.'); return; }
-
+      if(!name) { alert('નામ ભરો.'); return; }
       const card = document.createElement('div');
       card.className = 'data-item-card';
-      card.innerHTML = `<strong style="font-size:0.95rem;">${name} (${age} વર્ષ)</strong><br>🎓 ${edu} | 💼 ${job}<br>📞 ${contact}`;
+      card.innerHTML = `<strong>${name} (${age} વર્ષ)</strong><br>🎓 ${edu} | 📞 ${contact}`;
       document.getElementById('biodataListContainer').prepend(card);
-      alert('બાયોડેટા પબ્લિશ થઈ ગયો!');
+      alert('બાયોડેટા ઉમેરાઈ ગયો!');
       showMarriageSubTab('list');
     }
 
@@ -946,30 +785,25 @@
       const title = document.getElementById('newsTitleInput').value;
       const date = document.getElementById('newsDateInput').value;
       const desc = document.getElementById('newsDescInput').value;
-
       if(!title) { alert('શીર્ષક ભરો.'); return; }
-
       const card = document.createElement('div');
       card.className = 'news-card';
       card.innerHTML = `<div class="news-top"><h3>${title}</h3><span class="badge-blue">નવું</span></div><div class="news-desc">${desc}</div><div class="news-meta">📅 ${date}</div>`;
       document.getElementById('newsListContainer').prepend(card);
-      alert('જાહેરાત ઉમેરાઈ ગઈ!');
+      alert('જાહેરાત પબ્લિશ થઈ ગઈ!');
       toggleElement('addNewsFormBox');
     }
 
     function submitHallBooking() {
       const name = document.getElementById('hallApplicantName').value;
       const date = document.getElementById('hallBookingDate').value;
-
       if(!name || !date) { alert('વિગત ભરો.'); return; }
-
       const card = document.createElement('div');
       card.className = 'data-item-card';
-      card.style.display = 'flex';
-      card.style.justifyContent = 'space-between';
+      card.style.display = 'flex'; card.style.justifyContent = 'space-between';
       card.innerHTML = `<div><strong>તા. ${date}</strong><br>અરજદાર: ${name}</div><span class="status-booked">બુકિંગ રિક્વેસ્ટ 🟡</span>`;
       document.getElementById('hallBookingStatusList').prepend(card);
-      alert('હોલ બુકિંગ અરજી મોકલાઈ ગઈ!');
+      alert('રિક્વેસ્ટ મોકલાઈ ગઈ!');
       toggleElement('hallBookingFormBox');
     }
 
@@ -1006,6 +840,10 @@
         placeholderText.style.display = 'block';
       }
 
+      // WhatsApp Share Link Setup
+      const waText = encodeURIComponent(`*પોરબંદર સમસ્ત સિપાહી જમાત*\n*ડિજિટલ સભ્ય ઓળખપત્ર*\n\n👤 *નામ:* ${name}\n📞 *મોબાઇલ:* ${mobile}\n📍 *વિસ્તાર:* ${area}\n💳 *સભ્ય નં:* ${num}\n\nતમારું આઈડી કાર્ડ સફળતાપૂર્વક બની ગયું છે.`);
+      document.getElementById('whatsappShareBtn').href = `https://wa.me/91${mobile}?text=${waText}`;
+
       document.getElementById('idCardWrapper').style.display = 'block';
       document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
 
@@ -1016,6 +854,8 @@
         body: JSON.stringify({ name, mobile, number: num, area })
       });
     }
+
+    window.onload = function() { recalculateTotals(); }
   </script>
 </body>
 </html>
