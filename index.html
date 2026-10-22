@@ -213,9 +213,10 @@
     .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; outline: none; }
     
     .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
-    .btn-whatsapp-share { background: #25d366; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
-    .btn-print-a4 { background: #0284c7; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 8px; }
-    .btn-delete { background: #ef4444; color: white; border: none; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
+    .btn-whatsapp-share { background: #25d366; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; text-decoration: none; display: inline-block; text-align: center; flex: 1; }
+    .btn-print-a4 { background: #0284c7; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-top: 12px; }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; }
+    .btn-clear-all { background: #64748b; color: white; border: none; padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer; float: right; }
 
     /* Dynamic Item Cards */
     .data-item-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 10px; font-size: 0.85rem; }
@@ -223,73 +224,85 @@
     .status-booked { background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
     .status-available { background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
 
-    /* ID Card Design with Dual Logos */
-    .id-card-wrapper { display: none; margin-top: 20px; }
-    .id-card {
+    /* A4 Grid Container */
+    .a4-grid-container {
+      background: #f8fafc;
+      border: 2px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 10px;
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    /* ID Card Unit Design with Dual Logos */
+    .id-card-item {
       background: linear-gradient(135deg, #ffffff, #f8fafc);
-      border: 3px solid var(--primary);
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       position: relative;
-      overflow: hidden;
     }
     .id-card-header {
       background: var(--primary);
       color: white;
-      margin: -16px -16px 14px -16px;
-      padding: 12px 10px;
+      margin: -10px -10px 8px -10px;
+      padding: 8px 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 3px solid #facc15;
+      border-bottom: 2px solid #facc15;
     }
     .card-header-logo {
-      width: 42px; height: 42px;
+      width: 30px; height: 30px;
       object-fit: contain;
       border-radius: 50%;
       background: white;
-      padding: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 1px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    .card-header-title { text-align: center; flex: 1; padding: 0 6px; }
-    .card-header-title h3 { font-size: 0.95rem; font-weight: bold; color: #ffffff; }
-    .card-header-title p { font-size: 0.68rem; opacity: 0.9; color: #facc15; margin-top: 2px; }
+    .card-header-title { text-align: center; flex: 1; padding: 0 4px; }
+    .card-header-title h3 { font-size: 0.75rem; font-weight: bold; color: #ffffff; }
+    .card-header-title p { font-size: 0.55rem; color: #facc15; margin-top: 1px; }
 
-    .id-card-body { display: flex; gap: 12px; align-items: center; }
+    .id-card-body { display: flex; gap: 8px; align-items: center; }
     .id-photo-box {
-      width: 85px; height: 100px;
+      width: 65px; height: 75px;
       background: #e2e8f0;
-      border: 2px solid #cbd5e1;
-      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
     }
     .id-photo-box img { width: 100%; height: 100%; object-fit: cover; }
-    .id-details { font-size: 0.85rem; color: #1e293b; line-height: 1.6; }
+    .id-details { font-size: 0.72rem; color: #1e293b; line-height: 1.4; }
     .id-details strong { color: var(--primary); }
     .id-number-tag {
       background: #fef9c3;
       border: 1px dashed #ca8a04;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 2px 6px;
+      border-radius: 4px;
       font-weight: bold;
       display: inline-block;
-      margin-top: 6px;
+      margin-top: 4px;
       color: #854d0e;
+      font-size: 0.65rem;
     }
     .id-card-footer {
-      margin-top: 14px;
-      padding-top: 8px;
+      margin-top: 8px;
+      padding-top: 4px;
       border-top: 1px solid #e2e8f0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.72rem;
+      font-size: 0.60rem;
       color: #64748b;
     }
-    .verified-badge { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
+    .verified-badge { background: #dcfce7; color: #16a34a; padding: 1px 6px; border-radius: 8px; font-weight: bold; }
+    .card-action-row { display: flex; gap: 6px; margin-top: 8px; align-items: center; }
 
     /* Gallery Grid */
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -328,12 +341,15 @@
     .nav-item.active { color: var(--primary); font-weight: bold; }
     .nav-icon { font-size: 1.1rem; }
 
-    /* A4 / Print Format Styling */
+    /* Print Format Styling for A4 Grid */
     @media print {
       body * { visibility: hidden; }
-      .id-card-wrapper, .id-card-wrapper * { visibility: visible; }
-      .id-card-wrapper { position: absolute; left: 0; top: 0; width: 100%; display: block !important; }
-      .btn-whatsapp-share, .btn-print-a4 { display: none !important; }
+      #a4PrintArea, #a4PrintArea * { visibility: visible; }
+      #a4PrintArea {
+        position: absolute; left: 0; top: 0; width: 100%;
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 10mm; padding: 10mm; border: none; background: white;
+      }
+      .card-action-row { display: none !important; }
     }
   </style>
 </head>
@@ -573,11 +589,11 @@
       </div>
     </div>
 
-    <!-- TAB 5: LAVAJAM CARD GENERATOR (Dual Logo & WhatsApp) -->
+    <!-- TAB 5: LAVAJAM CARD GENERATOR & A4 BATCH GRID -->
     <div id="page-lavajam" class="tab-page">
       <div class="section-card">
-        <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & ડિજિટલ આઈડી કાર્ડ</div>
-        <form id="lavajamForm" onsubmit="generateCard(event)">
+        <div class="section-title">💳 લવાજમ સભ્ય નોંધણી & A4 બેચ પ્રિન્ટર</div>
+        <form id="lavajamForm" onsubmit="saveAndAddCard(event)">
           <div class="form-group"><label>સભ્યનું પૂરું નામ:</label><input type="text" id="mName" placeholder="અહમદભાઈ સિપાહી" required></div>
           <div class="form-group"><label>સભ્ય મોબાઇલ નંબર:</label><input type="tel" id="mMobile" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required></div>
           <div class="form-group"><label>સભ્ય નંબર (Member ID):</label><input type="text" id="mNumber" placeholder="AB835" required></div>
@@ -588,50 +604,24 @@
               <option>છાયા</option><option>ઝુરીબાગ</option><option>ખાપટ</option><option>બોખીરા</option>
             </select>
           </div>
-          <div class="form-group"><label>સભ્યનો ફોટો:</label><input type="file" id="mPhoto" accept="image/*" onchange="previewUserPhoto(event)"></div>
-          <button type="submit" class="btn-submit">સેવ કરો & ડિજિટલ આઈડી કાર્ડ બનાવો</button>
+          <div class="form-group"><label>સભ્યનો ફોટો પસંદ કરો:</label><input type="file" id="mPhoto" accept="image/*" onchange="previewUserPhoto(event)"></div>
+          <button type="submit" class="btn-submit">સેવ કરો & A4 પ્રિન્ટ શીટમાં ઉમેરો</button>
         </form>
+      </div>
 
-        <!-- Card Preview with Dual Logos -->
-        <div class="id-card-wrapper" id="idCardWrapper">
-          <div class="id-card" id="printableCard">
-            <div class="id-card-header">
-              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
-              <div class="card-header-title">
-                <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
-                <p>ડિજિટલ સભ્ય ઓળખપત્ર (Member ID Card)</p>
-              </div>
-              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
-            </div>
+      <!-- A4 Grid Sheet Section with Individual Delete & Clear All -->
+      <div class="section-card">
+        <div style="overflow: hidden; margin-bottom: 8px;">
+          <span class="section-title" style="float: left;">📄 A4 પ્રિન્ટ શીટ (તૈયાર કાર્ડ્સ)</span>
+          <button class="btn-clear-all" onclick="clearAllCards()">બધા કાઢી નાખો</button>
+        </div>
+        <p style="font-size:0.75rem; color:#64748b; margin-bottom: 8px;">અહીં ઉમેરેલા કાર્ડ્સ લાઈવ સેવ રહેશે. નીચે પ્રિન્ટ બટન દબાવીને કલર પ્રિન્ટ કાઢી શકો છો.</p>
 
-            <div class="id-card-body">
-              <div class="id-photo-box">
-                <img id="cardUserPhoto" src="" alt="સભ્યનો ફોટો" style="display:none;">
-                <span id="photoPlaceholderText" style="font-size:2rem;">👤</span>
-              </div>
-              <div class="id-details">
-                <div><strong>નામ:</strong> <span id="cardName">-</span></div>
-                <div><strong>મોબાઇલ:</strong> <span id="cardMobile">-</span></div>
-                <div><strong>વિસ્તાર:</strong> <span id="cardArea">-</span></div>
-                <div class="id-number-tag">સભ્ય નં: <span id="cardNumber">-</span></div>
-              </div>
-            </div>
-
-            <div class="id-card-footer">
-              <span>📍 પોરબંદર, ગુજરાત</span>
-              <span class="verified-badge">✓ પ્રમાણિત સભ્ય</span>
-            </div>
-          </div>
-
-          <!-- Share & Print Buttons -->
-          <a id="whatsappShareBtn" href="#" target="_blank" class="btn-whatsapp-share">
-            📲 વોટ્સએપ પર સભ્યને કાર્ડ મોકલો
-          </a>
-          <button class="btn-print-a4" onclick="window.print()">
-            🖨️ A4 કલર પ્રિન્ટ કાઢો (Print Card)
-          </button>
+        <div class="a4-grid-container" id="a4PrintArea">
+          <!-- Dynamic cards will appear here -->
         </div>
 
+        <button class="btn-print-a4" onclick="window.print()">🖨️ A4 કલર પ્રિન્ટ કાઢો (Print All Cards)</button>
       </div>
     </div>
 
@@ -677,6 +667,7 @@
 
   <script>
     let uploadedPhotoUrl = "";
+    let savedCards = JSON.parse(localStorage.getItem('sipay_id_cards')) || [];
     const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
 
     let bloodDonorsList = [
@@ -816,46 +807,108 @@
       }
     }
 
-    function generateCard(event) {
+    /* Save and Add to A4 Grid */
+    function saveAndAddCard(event) {
       event.preventDefault();
       const name = document.getElementById('mName').value;
       const mobile = document.getElementById('mMobile').value;
-      const num = document.getElementById('mNumber').value;
+      const number = document.getElementById('mNumber').value;
       const area = document.getElementById('mArea').value;
+      const photo = uploadedPhotoUrl || "";
 
-      document.getElementById('cardName').innerText = name;
-      document.getElementById('cardMobile').innerText = mobile;
-      document.getElementById('cardNumber').innerText = num;
-      document.getElementById('cardArea').innerText = area;
+      const cardObj = { name, mobile, number, area, photo };
+      savedCards.push(cardObj);
 
-      const imgElement = document.getElementById('cardUserPhoto');
-      const placeholderText = document.getElementById('photoPlaceholderText');
+      // Save to LocalStorage
+      localStorage.setItem('sipay_id_cards', JSON.stringify(savedCards));
 
-      if (uploadedPhotoUrl) {
-        imgElement.src = uploadedPhotoUrl;
-        imgElement.style.display = 'block';
-        placeholderText.style.display = 'none';
-      } else {
-        imgElement.style.display = 'none';
-        placeholderText.style.display = 'block';
-      }
+      // Reset form for next entry
+      document.getElementById('lavajamForm').reset();
+      uploadedPhotoUrl = "";
 
-      // WhatsApp Share Link Setup
-      const waText = encodeURIComponent(`*પોરબંદર સમસ્ત સિપાહી જમાત*\n*ડિજિટલ સભ્ય ઓળખપત્ર*\n\n👤 *નામ:* ${name}\n📞 *મોબાઇલ:* ${mobile}\n📍 *વિસ્તાર:* ${area}\n💳 *સભ્ય નં:* ${num}\n\nતમારું આઈડી કાર્ડ સફળતાપૂર્વક બની ગયું છે.`);
-      document.getElementById('whatsappShareBtn').href = `https://wa.me/91${mobile}?text=${waText}`;
+      renderCards();
+      alert('કાર્ડ સફળતાપૂર્વક સેવ થયું અને A4 પ્રિન્ટ યાદીમાં ઉમેરાઈ ગયું!');
 
-      document.getElementById('idCardWrapper').style.display = 'block';
-      document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
-
+      // Send to Google Sheet
       fetch(GOOGLE_WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, mobile, number: num, area })
+        body: JSON.stringify({ name, mobile, number, area })
       });
     }
 
-    window.onload = function() { recalculateTotals(); }
+    /* Render Cards in A4 Grid */
+    function renderCards() {
+      const container = document.getElementById('a4PrintArea');
+      container.innerHTML = "";
+
+      if(savedCards.length === 0) {
+        container.innerHTML = `<p style="font-size:0.8rem; color:#64748b; text-align:center; grid-column:1/-1; padding:15px;">હજુ સુધી કોઈ કાર્ડ ઉમેરાયેલ નથી.</p>`;
+        return;
+      }
+
+      savedCards.forEach((c, index) => {
+        const waText = encodeURIComponent(`*પોરબંદર સમસ્ત સિપાહી જમાત*\n*ડિજિટલ સભ્ય ઓળખપત્ર*\n\n👤 *નામ:* ${c.name}\n📞 *મોબાઇલ:* ${c.mobile}\n📍 *વિસ્તાર:* ${c.area}\n💳 *સભ્ય નં:* ${c.number}\n\nતમારું આઈડી કાર્ડ સફળતાપૂર્વક બની ગયું છે.`);
+        
+        const cardHtml = `
+          <div class="id-card-item">
+            <div class="id-card-header">
+              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
+              <div class="card-header-title">
+                <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
+                <p>ડિજિટલ સભ્ય ઓળખપત્ર</p>
+              </div>
+              <img src="watermarked_img_5697005019436083044.png" class="card-header-logo" alt="Logo">
+            </div>
+
+            <div class="id-card-body">
+              <div class="id-photo-box">
+                ${c.photo ? `<img src="${c.photo}">` : `<span style="font-size:1.5rem;">👤</span>`}
+              </div>
+              <div class="id-details">
+                <div><strong>નામ:</strong> ${c.name}</div>
+                <div><strong>મોબાઇલ:</strong> ${c.mobile}</div>
+                <div><strong>વિસ્તાર:</strong> ${c.area}</div>
+                <div class="id-number-tag">સભ્ય નં: ${c.number}</div>
+              </div>
+            </div>
+
+            <div class="id-card-footer">
+              <span>📍 પોરબંદર</span>
+              <span class="verified-badge">✓ પ્રમાણિત સભ્ય</span>
+            </div>
+
+            <div class="card-action-row">
+              <a href="https://wa.me/91${c.mobile}?text=${waText}" target="_blank" class="btn-whatsapp-share">📲 WhatsApp</a>
+              <button class="btn-delete" onclick="deleteSingleCard(${index})">❌ Delete</button>
+            </div>
+          </div>
+        `;
+        container.innerHTML += cardHtml;
+      });
+    }
+
+    function deleteSingleCard(index) {
+      if(confirm('શું તમે આ કાર્ડ કાઢી નાખવા માગો છો?')) {
+        savedCards.splice(index, 1);
+        localStorage.setItem('sipay_id_cards', JSON.stringify(savedCards));
+        renderCards();
+      }
+    }
+
+    function clearAllCards() {
+      if(confirm('શું તમે A4 શીટમાંથી બધા કાર્ડ્સ હટાવવા માગો છો?')) {
+        savedCards = [];
+        localStorage.removeItem('sipay_id_cards');
+        renderCards();
+      }
+    }
+
+    window.onload = function() {
+      recalculateTotals();
+      renderCards();
+    }
   </script>
 </body>
 </html>
