@@ -4,13 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 🔍 Google Search Console Verification Tag -->
   <meta name="google-site-verification" content="Lz9dpg8Q_kBB5BF6Z6N0SLzVZMtqjbXoazGiYtSx1hQ" />
-
-  <!-- 🔍 Google Search SEO Meta Tags -->
   <title>સિપાહી સમાજ પોરબંદર - Sipay Samaj Porbandar Portal</title>
   <meta name="description" content="પોરબંદર સમસ્ત સિપાહી જમાત અધિકૃત ડિજિટલ પોર્ટલ. લવાજમ આઈડી કાર્ડ, ન્યાઝ હિસાબ, બ્લડ હેલ્પ અને સમાજ માહિતી.">
-  <meta name="keywords" content="Sipay Samaj Porbandar, સિપાહી સમાજ પોરબંદર, Porbandar Sipay Jamaat, Lavajam Card, Sipay Samaj">
   <meta name="author" content="Yunus Ibrahem Malek">
 
   <style>
@@ -241,7 +237,7 @@
     .news-desc { font-size: 0.8rem; color: #64748b; margin: 6px 0 10px; }
     .news-meta { font-size: 0.75rem; color: #2563eb; font-weight: 600; }
 
-    /* Contact Card */
+    /* Contact Card & Buttons */
     .contact-card {
       background: var(--primary);
       color: white;
@@ -251,11 +247,12 @@
     }
     .contact-card h3 { font-size: 1rem; color: #facc15; margin-bottom: 6px; }
     .contact-card p { font-size: 0.8rem; opacity: 0.9; margin-bottom: 14px; }
-    .contact-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
-    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
+    .contact-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .btn-call { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
+    .btn-whatsapp { background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
+    .btn-group-link { background: #0284c7; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; width: 100%; cursor: pointer; text-decoration: none; text-align: center; display: block; }
 
-    /* 💎 MIZAN LOGO FOOTER CARD */
+    /* Developer Footer */
     .dev-footer-card {
       background: linear-gradient(135deg, #020617, #1e1b4b);
       color: white;
@@ -296,15 +293,28 @@
     /* Forms & Inputs */
     .form-group { margin-bottom: 14px; }
     .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
-    .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; outline: none; }
-    .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; outline: none; }
+    .btn-submit { background: var(--secondary); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; font-size: 0.95rem; cursor: pointer; margin-top: 4px; }
     .btn-danger { background: var(--accent-red); }
+    .btn-secondary { background: #64748b; color: white; }
+
+    /* Dynamic Item Cards */
+    .data-item-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .data-item-card strong { color: var(--primary); }
+
+    /* Hall Booking Status Badges */
+    .status-booked { background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
+    .status-available { background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
 
     /* ID Card Design */
-    .id-card-wrapper {
-      display: none;
-      margin-top: 20px;
-    }
+    .id-card-wrapper { display: none; margin-top: 20px; }
     .id-card {
       background: linear-gradient(135deg, #ffffff, #f8fafc);
       border: 2px solid var(--primary);
@@ -325,11 +335,7 @@
     .id-card-header h3 { font-size: 0.95rem; font-weight: bold; }
     .id-card-header p { font-size: 0.7rem; opacity: 0.9; }
 
-    .id-card-body {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
+    .id-card-body { display: flex; gap: 12px; align-items: center; }
     .id-photo-box {
       width: 80px;
       height: 95px;
@@ -342,11 +348,7 @@
       overflow: hidden;
       flex-shrink: 0;
     }
-    .id-photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .id-photo-box img { width: 100%; height: 100%; object-fit: cover; }
     .id-details { font-size: 0.82rem; color: #1e293b; line-height: 1.6; }
     .id-details strong { color: var(--primary); }
     .id-number-tag {
@@ -369,13 +371,7 @@
       font-size: 0.7rem;
       color: #64748b;
     }
-    .verified-badge {
-      background: #dcfce7;
-      color: #16a34a;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-weight: bold;
-    }
+    .verified-badge { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
 
     /* Gallery Grid */
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -461,69 +457,120 @@
           <div class="icon-box bg-red">🩸</div>
           <span>બ્લડ હેલ્પ</span>
         </div>
-        <div class="action-btn" onclick="openTab('marriage')">
-          <div class="icon-box bg-yellow">💍</div>
-          <span>મેરેજ</span>
+        <div class="action-btn" onclick="openTab('hall-booking')">
+          <div class="icon-box bg-yellow">🏛️</div>
+          <span>હોલ બુકિંગ</span>
         </div>
       </div>
 
       <!-- 3 NIYAZ HISAB BOXES SECTION -->
       <div class="section-card">
-        <div class="section-title">📊 ન્યાઝ હિસાબ - આવક & જાવક</div>
+        <div class="section-title" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>📊 ન્યાઝ હિસાબ - આવક & જાવક</span>
+        </div>
         <div class="niyaz-section">
-          <!-- 1. Mohram Sharif Niyaz -->
           <div class="niyaz-card" onclick="openHisabPage('મોહર્રમ શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૧. મોહર્રમ શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+              <p id="date-mohram">📅 તા. ૨૫ જુલાઈ ૨૦૨૫ • પૂર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
 
-          <!-- 2. Barmi Sharif Niyaz -->
           <div class="niyaz-card" onclick="openHisabPage('બારમી શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૨. બારમી શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+              <p id="date-barmi">📅 તા. ૧૨ સપ્ટેમ્બર ૨૦૨૬ • પૂર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
 
-          <!-- 3. Agyarmi Sharif Niyaz -->
           <div class="niyaz-card" onclick="openHisabPage('અગિયારમી શરીફ ન્યાઝ હિસાબ')">
             <div>
               <h3>૩. અગિયારમી શરીફ ન્યાઝ</h3>
-              <p>આવક અને જાવકનો સંપૂર્ણ હિસાબ</p>
+              <p id="date-agyarmi">📅 તા. ૨૨ ઓક્ટોબર ૨૦૨૬ • પૂર્ણ હિસાબ</p>
             </div>
             <button class="btn-view-hisab">જુઓ ➔</button>
           </div>
+        </div>
+        <button class="btn-submit btn-secondary" onclick="toggleElement('addHisabFormBox')">➕ નવો હિસાબ ઉમેરો / એડિટ કરો</button>
+        
+        <!-- Add/Edit Hisab Form -->
+        <div id="addHisabFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
+          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવો હિસાબ / એડિટ ફોર્મ</h4>
+          <div class="form-group">
+            <label>હિસાબનો પ્રકાર:</label>
+            <select id="hisabTypeSelect">
+              <option>મોહર્રમ શરીફ ન્યાઝ</option>
+              <option>બારમી શરીફ ન્યાઝ</option>
+              <option>અગિયારમી શરીફ ન્યાઝ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>કાર્યક્રમ તારીખ:</label>
+            <input type="date" id="hisabDateInput">
+          </div>
+          <div class="form-group">
+            <label>વિગત (આવક/જાવક એન્ટ્રી):</label>
+            <input type="text" id="hisabDetailInput" placeholder="દા.ત. જમાત ફાળો / ચોખા ખરીદી">
+          </div>
+          <div class="form-group">
+            <label>રકમ (₹):</label>
+            <input type="number" id="hisabAmountInput" placeholder="દા.ત. 5000">
+          </div>
+          <button class="btn-submit" onclick="addNewHisabEntry()">હિસાબ સેવ કરો</button>
         </div>
       </div>
 
       <!-- News Section -->
       <div class="section-card">
-        <div class="section-title">📢 તાજા સમાચાર & જાહેરાત</div>
-        <div class="news-card">
-          <div class="news-top">
-            <h3>વાર્ષિક જનરલ સ્નેહ મિલન સમારોહ</h3>
-            <span class="badge-blue">નવું</span>
+        <div class="section-title" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>📢 તાજા સમાચાર & જાહેરાત</span>
+        </div>
+        <div id="newsListContainer">
+          <div class="news-card">
+            <div class="news-top">
+              <h3>વાર્ષિક જનરલ સ્નેહ મિલન સમારોહ</h3>
+              <span class="badge-blue">નવું</span>
+            </div>
+            <div class="news-desc">પોરબંદર સિપાહી સમાજનો વાર્ષિક કાર્યક્રમ કોમ્યુનિટી હોલ ખાતે યોજાશે.</div>
+            <div class="news-meta">📅 તા. ૨૫ ડિસેમ્બર ૨૦૨૬ • સમય: સાંજે ૫:૦૦ વાગ્યે</div>
           </div>
-          <div class="news-desc">પોરબંદર સિપાહી સમાજનો વાર્ષિક કાર્યક્રમ કોમ્યુનિટી હોલ ખાતે યોજાશે.</div>
-          <div class="news-meta">📅 તા. ૨૫ ડિસેમ્બર • સમય: સાંજે ૫:૦૦ વાગ્યે</div>
+        </div>
+
+        <button class="btn-submit btn-secondary" onclick="toggleElement('addNewsFormBox')">➕ નવી જાહેરાત / કાર્યક્રમ ઉમેરો</button>
+
+        <!-- Add News Form -->
+        <div id="addNewsFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
+          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">નવી જાહેરાત ફોર્મ</h4>
+          <div class="form-group">
+            <label>કાર્યક્રમનું શીર્ષક:</label>
+            <input type="text" id="newsTitleInput" placeholder="દા.ત. સ્નેહ મિલન ૨૦૨૬">
+          </div>
+          <div class="form-group">
+            <label>તારીખ & સમય:</label>
+            <input type="text" id="newsDateInput" placeholder="દા.ત. ૨૫ ડિસેમ્બર, સાંજે ૫ વાગ્યે">
+          </div>
+          <div class="form-group">
+            <label>વિગત:</label>
+            <textarea id="newsDescInput" rows="2" placeholder="કાર્યક્રમની વિગત અહી લખો..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="addNewNewsEntry()">જાહેરાત પબ્લિશ કરો</button>
         </div>
       </div>
 
-      <!-- Contact -->
+      <!-- Contact Section with Direct Call & WhatsApp Group Links -->
       <div class="contact-card">
         <h3>મદદ અથવા સંપર્ક માટે</h3>
-        <p>કોમ્યુનિટી હોલ બુકિંગ અને અન્ય માહિતી માટે જમાત કાર્યાલયનો સંપર્ક કરો.</p>
+        <p>કોમ્યુનિટી હોલ બુકિંગ, જમાત માહિતી અને ગ્રુપ માટે સંપર્ક કરો.</p>
         <div class="contact-btns">
-          <button class="btn-call" onclick="window.location.href='tel:9825000000'">📞 કોલ કરો</button>
-          <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/919825000000'">💬 વોટ્સએપ</button>
+          <a class="btn-call" href="tel:9825000000">📞 કોલ કરો</a>
+          <a class="btn-whatsapp" href="https://wa.me/919825000000?text=Salam%20Porbandar%20Sipay%20Samaj" target="_blank">💬 વોટ્સએપ મેસેજ</a>
         </div>
+        <a class="btn-group-link" href="https://chat.whatsapp.com/ExampleGroupLink" target="_blank">📲 સિપાહી સમાજ વોટ્સએપ ગ્રુપમાં જોડાઓ</a>
       </div>
 
-      <!-- DEVELOPER FOOTER CARD WITH CORRECTED IMAGE NAME -->
+      <!-- DEVELOPER FOOTER CARD -->
       <div class="dev-footer-card">
         <img src="IMG_20261021_144259.png" alt="MIZAN Logo" class="mizan-logo-img">
         <p>Crafted & Developed by <strong>YUNUS IBRAHEM MALEK</strong></p>
@@ -537,7 +584,6 @@
         <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
         <div class="section-title" id="hisabTitle">બારમી શરીફ ન્યાઝ ૨૦૨૬</div>
 
-        <!-- Photo Format Table -->
         <div class="hisab-table-container">
           <table class="hisab-table">
             <thead>
@@ -546,7 +592,7 @@
                 <th colspan="2">જાવક</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="hisabTableBody">
               <tr>
                 <td><strong>૨૧૫૪૭૩/-</strong></td>
                 <td>જમાતના સભ્યોનો ફાળો</td>
@@ -583,60 +629,6 @@
                 <td><strong>૨૯૦૦/-</strong></td>
                 <td>લસણ ૨૦ કિલો ૧૪૫ ભાવ</td>
               </tr>
-              <tr>
-                <td><strong>૨૫૨૦૨૫/-</strong></td>
-                <td><strong>કુલ હિસાબ</strong></td>
-                <td><strong>૬૬૮૦/-</strong></td>
-                <td>બકાલાના</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૬૪૫૦/-</strong></td>
-                <td>દહી તથા ધોરવાના</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૬૦૦૦/-</strong></td>
-                <td>મંડપ ટેબલ પડદાનું ભાડુ</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૩૬૭૫/-</strong></td>
-                <td>ગરમ મસાલા</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૩૪૦૦/-</strong></td>
-                <td>લાકડા ૨૦ મણ ૧૭૦ ભાવ</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૫૦૦૦/-</strong></td>
-                <td>રાંધવાવાળા બાપુની મજૂરી</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૨૪૯૦/-</strong></td>
-                <td>રાંધવાવાળા તથા પીરસવાવાળા માટે નાસ્તો ચા પાન ફાકીના</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૧૨૦૦/-</strong></td>
-                <td>પાણી ના કુલરના</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><strong>૧૭૯૫/-</strong></td>
-                <td>કેરોસીન છાણાં સાબુ પાવડર રિક્ષા ભાડાના</td>
-              </tr>
               <tr style="background:#fef9c3;">
                 <td colspan="2"><strong>કુલ આવક: ૨૫૨૦૨૫/-</strong></td>
                 <td colspan="2"><strong>કુલ જાવક: ૨૫૨૦૨૫/-</strong></td>
@@ -659,27 +651,103 @@
       </div>
     </div>
 
-    <!-- TAB 3: BLOOD HELP -->
+    <!-- TAB 3: BLOOD HELP (REGISTER & SEARCH) -->
     <div id="page-blood" class="tab-page">
       <div class="section-card">
-        <div class="section-title">🩸 ઈમરજન્સી બ્લડ ડોનેશન</div>
-        <div class="form-group">
-          <label>જરૂરી બ્લડ ગ્રુપ પસંદ કરો:</label>
-          <select id="bgSelect">
-            <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option>
-          </select>
+        <div class="section-title">🩸 ઈમરજન્સી બ્લડ ડોનેશન હેલ્પ</div>
+        
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+          <button class="btn-submit" style="flex:1;" onclick="showBloodSubTab('search')">🔍 રક્તદાતા શોધો</button>
+          <button class="btn-submit btn-secondary" style="flex:1;" onclick="showBloodSubTab('register')">➕ રક્તદાતા બનો</button>
         </div>
-        <button class="btn-submit btn-danger" onclick="searchBlood()">રક્તદાતા શોધો</button>
-        <div id="bloodResult" style="margin-top:15px;"></div>
+
+        <!-- Subtab 1: Search Blood -->
+        <div id="bloodSearchBox">
+          <div class="form-group">
+            <label>જરૂરી બ્લડ ગ્રુપ પસંદ કરો:</label>
+            <select id="bgSelect">
+              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option><option>A-</option><option>B-</option><option>AB-</option>
+            </select>
+          </div>
+          <button class="btn-submit btn-danger" onclick="searchBlood()">રક્તદાતા ની યાદી જુઓ</button>
+          <div id="bloodResult" style="margin-top:15px;"></div>
+        </div>
+
+        <!-- Subtab 2: Register as Donor -->
+        <div id="bloodRegisterBox" style="display:none;">
+          <h4 style="font-size:0.9rem; margin-bottom:10px; color:var(--primary);">નવા રક્તદાતા નોંધણી</h4>
+          <div class="form-group">
+            <label>રક્તદાતાનું નામ:</label>
+            <input type="text" id="donorName" placeholder="તમારું નામ" required>
+          </div>
+          <div class="form-group">
+            <label>મોબાઇલ નંબર:</label>
+            <input type="tel" id="donorMobile" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
+          </div>
+          <div class="form-group">
+            <label>બ્લડ ગ્રુપ:</label>
+            <select id="donorBg">
+              <option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>O-</option><option>A-</option><option>B-</option><option>AB-</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>પોરબંદર નો વિસ્તાર:</label>
+            <input type="text" id="donorArea" placeholder="દા.ત. છાયા / બોખીરા">
+          </div>
+          <button class="btn-submit btn-danger" onclick="registerBloodDonor()">રક્તદાતા તરીકે નોંધણી કરો</button>
+        </div>
+
       </div>
     </div>
 
-    <!-- TAB 4: MARRIAGE -->
+    <!-- TAB 4: MARRIAGE / MATRIMONIAL (FORM & SHOW BIODATAS) -->
     <div id="page-marriage" class="tab-page">
       <div class="section-card">
-        <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ</div>
-        <p style="font-size:0.85rem; color:#64748b; margin-bottom:15px;">સમાજના યુવક-યુવતીઓ માટે બાયોડેટા નોંધણી.</p>
-        <button class="btn-submit" onclick="alert('બાયોડેટા ફોર્મ ઓપન થશે.')">➕ બાયોડેટા ઉમેરો</button>
+        <div class="section-title">💍 વિવાહ / મેટ્રિમોનિયલ બાયોડેટા</div>
+        <p style="font-size:0.85rem; color:#64748b; margin-bottom:15px;">સમાજના યુવક-યુવતીઓ માટે બાયોડેટા નોંધણી અને યાદી.</p>
+        
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+          <button class="btn-submit" style="flex:1;" onclick="showMarriageSubTab('list')">📋 બાયોડેટા જુઓ</button>
+          <button class="btn-submit btn-secondary" style="flex:1;" onclick="showMarriageSubTab('form')">➕ નવો બાયોડેટા ઉમેરો</button>
+        </div>
+
+        <!-- Marriage Subtab 1: List -->
+        <div id="marriageListBox">
+          <div id="biodataListContainer">
+            <div class="data-item-card">
+              <strong style="font-size:0.95rem;">અહમદ સિપાહી (ઉંમર: ૨૪)</strong><br>
+              🎓 અભ્યાસ: B.Com | 💼 વ્યવસાય: પ્રાઇવેટ જોબ<br>
+              📍 વિસ્તાર: છાયા, પોરબંદર<br>
+              📞 સંપર્ક: 9825012345
+            </div>
+          </div>
+        </div>
+
+        <!-- Marriage Subtab 2: Add Form -->
+        <div id="marriageFormBox" style="display:none;">
+          <div class="form-group">
+            <label>યુવક/યુવતીનું નામ:</label>
+            <input type="text" id="bioName" placeholder="પૂરું નામ" required>
+          </div>
+          <div class="form-group">
+            <label>ઉંમર:</label>
+            <input type="number" id="bioAge" placeholder="દા.ત. 24" required>
+          </div>
+          <div class="form-group">
+            <label>અભ્યાસ / ક્વોલિફિકેશન:</label>
+            <input type="text" id="bioEdu" placeholder="દા.ત. B.Com / ITI" required>
+          </div>
+          <div class="form-group">
+            <label>વ્યવસાય / નોકરી:</label>
+            <input type="text" id="bioJob" placeholder="દા.ત. બિઝનેસ / જોબ" required>
+          </div>
+          <div class="form-group">
+            <label>વિસ્તાર & સંપર્ક નંબર:</label>
+            <input type="text" id="bioContact" placeholder="વિસ્તાર અને મોબાઇલ નંબર" required>
+          </div>
+          <button class="btn-submit" onclick="saveBiodata()">બાયોડેટા પબ્લિશ કરો</button>
+        </div>
+
       </div>
     </div>
 
@@ -718,7 +786,6 @@
           <button type="submit" class="btn-submit">સેવ કરો & ડિજિટલ આઈડી કાર્ડ બનાવો</button>
         </form>
 
-        <!-- Digital ID Card Preview -->
         <div class="id-card-wrapper" id="idCardWrapper">
           <div class="id-card">
             <div class="id-card-header">
@@ -745,6 +812,63 @@
           <p style="text-align:center; font-size:0.75rem; color:#64748b; margin-top:8px;">
             📸 આ કાર્ડનો સ્ક્રીનશોટ પાડીને સાચવી રાખો.
           </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 6: HALL BOOKING & AVAILABILITY CALENDAR -->
+    <div id="page-hall-booking" class="tab-page">
+      <div class="section-card">
+        <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ & તારીખ ઉપલબ્ધતા</div>
+        <p style="font-size:0.85rem; color:#64748b; margin-bottom:14px;">હોલ ક્યારે બુક છે અને ક્યારે ખાલી છે તેની લાઈવ વિગત.</p>
+        
+        <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:8px;">📅 આગામી બુકિંગ સ્ટેટસ:</h4>
+        <div id="hallBookingStatusList">
+          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br>
+              લગ્ન પ્રસંગ (બુક કરનાર: રફીકભાઈ)
+            </div>
+            <span class="status-booked">બુક છે 🔴</span>
+          </div>
+          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong>તા. ૨૦ નવેમ્બર ૨૦૨૬</strong><br>
+              સ્નેહ મિલન કાર્યક્રમ
+            </div>
+            <span class="status-booked">બુક છે 🔴</span>
+          </div>
+          <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong>તા. ૨૫ નવેમ્બર ૨૦૨૬</strong><br>
+              કોઈ પણ પ્રસંગ માટે ઉપલબ્ધ
+            </div>
+            <span class="status-available">ખાલી છે 🟢</span>
+          </div>
+        </div>
+
+        <button class="btn-submit" onclick="toggleElement('hallBookingFormBox')">📝 હોલ બુકિંગ અરજી કરો</button>
+
+        <div id="hallBookingFormBox" style="display:none; margin-top:14px; padding:12px; background:#f8fafc; border-radius:10px; border:1px solid #cbd5e1;">
+          <h4 style="font-size:0.9rem; margin-bottom:8px; color:var(--primary);">હોલ બુકિંગ ફોર્મ</h4>
+          <div class="form-group">
+            <label>આવેદકનું નામ:</label>
+            <input type="text" id="hallApplicantName" placeholder="તમારું પૂરું નામ" required>
+          </div>
+          <div class="form-group">
+            <label>મોબાઇલ નંબર:</label>
+            <input type="tel" id="hallApplicantMobile" placeholder="10 અંકનો નંબર" required>
+          </div>
+          <div class="form-group">
+            <label>જરૂરી તારીખ:</label>
+            <input type="date" id="hallBookingDate" required>
+          </div>
+          <div class="form-group">
+            <label>પ્રસંગની વિગત:</label>
+            <input type="text" id="hallEventDetail" placeholder="દા.ત. શાદી / સગાઈ / મીટિંગ">
+          </div>
+          <button class="btn-submit" onclick="submitHallBooking()">બુકિંગ રિક્વેસ્ટ મોકલો</button>
         </div>
 
       </div>
@@ -778,9 +902,14 @@
 
   <script>
     let uploadedPhotoUrl = "";
-
-    // 🔗 LIVE GOOGLE SHEET WEB APP CONNECTION URL
     const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
+
+    // Dynamic Donors Memory
+    let bloodDonorsList = [
+      { name: "અહમદભાઈ સિપાહી", mobile: "9825011111", bg: "A+", area: "છાયા" },
+      { name: "રફીકભાઈ સિપાહી", mobile: "9898022222", bg: "B+", area: "ઝુરીબાગ" },
+      { name: "સલીમભાઈ સિપાહી", mobile: "9712033333", bg: "O+", area: "બોખીરા" }
+    ];
 
     function openTab(tabName) {
       document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
@@ -792,9 +921,148 @@
       window.scrollTo(0, 0);
     }
 
+    function toggleElement(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+    }
+
     function openHisabPage(title) {
       document.getElementById('hisabTitle').innerText = title;
       openTab('hisab-detail');
+    }
+
+    function showBloodSubTab(type) {
+      document.getElementById('bloodSearchBox').style.display = type === 'search' ? 'block' : 'none';
+      document.getElementById('bloodRegisterBox').style.display = type === 'register' ? 'block' : 'none';
+    }
+
+    function showMarriageSubTab(type) {
+      document.getElementById('marriageListBox').style.display = type === 'list' ? 'block' : 'none';
+      document.getElementById('marriageFormBox').style.display = type === 'form' ? 'block' : 'none';
+    }
+
+    function registerBloodDonor() {
+      const name = document.getElementById('donorName').value;
+      const mobile = document.getElementById('donorMobile').value;
+      const bg = document.getElementById('donorBg').value;
+      const area = document.getElementById('donorArea').value;
+
+      if(!name || !mobile) { alert('મહેરબાની કરીને નામ અને મોબાઇલ નંબર ભરો.'); return; }
+
+      bloodDonorsList.push({ name, mobile, bg, area });
+      alert('આભાર! તમારી રક્તદાતા તરીકે સફળતાપૂર્વક નોંધણી થઈ ગઈ છે.');
+      document.getElementById('donorName').value = '';
+      document.getElementById('donorMobile').value = '';
+      showBloodSubTab('search');
+      searchBlood();
+    }
+
+    function searchBlood() {
+      const bg = document.getElementById('bgSelect').value;
+      const filtered = bloodDonorsList.filter(d => d.bg === bg);
+
+      let html = `<h4 style="font-size:0.85rem; margin-bottom:8px; color:var(--primary);">${bg} બ્લડ ગ્રુપ વાળા રક્તદાતાઓ:</h4>`;
+      if(filtered.length === 0) {
+        html += `<p style="font-size:0.8rem; color:#64748b;">હાલમાં આ બ્લડ ગ્રુપ માટે કોઈ દાતા નોંધાયેલ નથી.</p>`;
+      } else {
+        filtered.forEach(d => {
+          html += `
+            <div class="data-item-card">
+              <strong>${d.name} (${d.area})</strong><br>
+              📞 <a href="tel:${d.mobile}" style="color:var(--primary); font-weight:bold;">${d.mobile}</a>
+            </div>
+          `;
+        });
+      }
+      document.getElementById('bloodResult').innerHTML = html;
+    }
+
+    function saveBiodata() {
+      const name = document.getElementById('bioName').value;
+      const age = document.getElementById('bioAge').value;
+      const edu = document.getElementById('bioEdu').value;
+      const job = document.getElementById('bioJob').value;
+      const contact = document.getElementById('bioContact').value;
+
+      if(!name || !contact) { alert('મહેરબાની કરીને માહિતી યોગ્ય રીતે ભરો.'); return; }
+
+      const card = document.createElement('div');
+      card.className = 'data-item-card';
+      card.innerHTML = `
+        <strong style="font-size:0.95rem;">${name} (ઉંમર: ${age})</strong><br>
+        🎓 અભ્યાસ: ${edu} | 💼 વ્યવસાય: ${job}<br>
+        📞 સંપર્ક: ${contact}
+      `;
+      document.getElementById('biodataListContainer').prepend(card);
+      alert('બાયોડેટા સફળતાપૂર્વક ઉમેરાઈ ગયો છે!');
+      showMarriageSubTab('list');
+    }
+
+    function addNewNewsEntry() {
+      const title = document.getElementById('newsTitleInput').value;
+      const date = document.getElementById('newsDateInput').value;
+      const desc = document.getElementById('newsDescInput').value;
+
+      if(!title) { alert('શીર્ષક લખવું જરૂરી છે.'); return; }
+
+      const card = document.createElement('div');
+      card.className = 'news-card';
+      card.innerHTML = `
+        <div class="news-top">
+          <h3>${title}</h3>
+          <span class="badge-blue">નવું</span>
+        </div>
+        <div class="news-desc">${desc}</div>
+        <div class="news-meta">📅 ${date}</div>
+      `;
+      document.getElementById('newsListContainer').prepend(card);
+      alert('નવી જાહેરાત પબ્લિશ થઈ ગઈ છે!');
+      toggleElement('addNewsFormBox');
+    }
+
+    function addNewHisabEntry() {
+      const type = document.getElementById('hisabTypeSelect').value;
+      const date = document.getElementById('hisabDateInput').value;
+      const detail = document.getElementById('hisabDetailInput').value;
+      const amount = document.getElementById('hisabAmountInput').value;
+
+      if(!detail || !amount) { alert('વિગત અને રકમ ભરો.'); return; }
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${amount}/-</strong></td>
+        <td>${detail} (${type})</td>
+        <td>-</td>
+        <td>-</td>
+      `;
+      document.getElementById('hisabTableBody').prepend(tr);
+      alert('ન્યાઝ હિસાબમાં નવી એન્ટ્રી ઉમેરાઈ ગઈ છે!');
+      toggleElement('addHisabFormBox');
+    }
+
+    function submitHallBooking() {
+      const name = document.getElementById('hallApplicantName').value;
+      const mobile = document.getElementById('hallApplicantMobile').value;
+      const date = document.getElementById('hallBookingDate').value;
+      const event = document.getElementById('hallEventDetail').value;
+
+      if(!name || !date) { alert('તમામ વિગતો ભરો.'); return; }
+
+      const card = document.createElement('div');
+      card.className = 'data-item-card';
+      card.style.display = 'flex';
+      card.style.justifyContent = 'space-between';
+      card.style.alignItems = 'center';
+      card.innerHTML = `
+        <div>
+          <strong>તા. ${date}</strong><br>
+          ${event} (અરજદાર: ${name} - ${mobile})
+        </div>
+        <span class="status-booked">અરજી સબમિટ 🟡</span>
+      `;
+      document.getElementById('hallBookingStatusList').prepend(card);
+      alert('હોલ બુકિંગ અરજી મોકલાઈ ગઈ છે. કાર્યાલય દ્વારા સંપર્ક કરવામાં આવશે.');
+      toggleElement('hallBookingFormBox');
     }
 
     function previewUserPhoto(event) {
@@ -836,25 +1104,13 @@
       document.getElementById('idCardWrapper').style.display = 'block';
       document.getElementById('idCardWrapper').scrollIntoView({ behavior: 'smooth' });
 
-      // Save Data to Google Sheet
       fetch(GOOGLE_WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, mobile: mobile, number: num, area: area })
-      }).then(() => console.log('Data successfully saved to Google Sheet!'))
+      }).then(() => console.log('Data saved'))
         .catch(err => console.error(err));
-    }
-
-    function searchBlood() {
-      const bg = document.getElementById('bgSelect').value;
-      document.getElementById('bloodResult').innerHTML = `
-        <div style="background:#f1f5f9; padding:12px; border-radius:8px; border-left:4px solid #ef4444; font-size:0.85rem;">
-          <strong>પોરબંદર ${bg} રક્તદાતા:</strong><br>
-          1. અહમદભાઈ સિપાહી (છાયા) - 98250xxxxx<br>
-          2. રફીકભાઈ સિપાહી (ઝુરીબાગ) - 98980xxxxx
-        </div>
-      `;
     }
   </script>
 </body>
