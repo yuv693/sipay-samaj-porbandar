@@ -344,7 +344,7 @@
       </div>
     </div>
 
-    <!-- TAB: DONATION / SAHAYOG -->
+    <!-- TAB: DONATION / SAHAYOG (WITH QR UPLOAD & EDITABLE BANK DETAILS) -->
     <div id="page-donation" class="tab-page">
       <div class="section-card">
         <button onclick="openTab('home')" style="background:#e2e8f0; border:none; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; margin-bottom:12px; cursor:pointer;">⬅ પાછા જાઓ</button>
@@ -353,23 +353,50 @@
           પોરબંદર સમાજના વિકાસ કાર્યો, ન્યાઝ ફાળો અને ઈમરજન્સી સેવાઓ માટે તમારો સહયોગ નીચે આપેલ QR Code અથવા બેંક એકાઉન્ટમાં સીધો ટ્રાન્સફર કરી શકો છો.
         </p>
 
-        <!-- UPI QR CODE DISPLAY WITH CORRECT LOGO -->
+        <!-- UPI QR CODE DISPLAY & UPLOAD -->
         <div class="qr-box">
           <h4 style="font-size:0.88rem; color:var(--primary); margin-bottom:6px;">📲 GPay / PhonePe / Paytm QR Code</h4>
-          <img src="1000385967.png" alt="Samaj Lion Logo" style="max-width:140px; margin-bottom:8px;">
-          <br>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SipaySamajPorbandar" alt="Samaj QR Code">
-          <p style="font-size:0.75rem; color:#64748b; margin-top:6px;">UPI ID: <strong>sipaysamaj@upi</strong></p>
+          <img src="IMG_20261021_190938.png" id="displayLionLogo" alt="Lion Logo" style="max-width:120px; margin-bottom:8px; display:block; margin-left:auto; margin-right:auto;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SipaySamajPorbandar" id="displayQrImg" alt="Samaj QR Code">
+          <p style="font-size:0.75rem; color:#64748b; margin-top:6px;" id="displayUpiId">UPI ID: <strong>sipaysamaj@upi</strong></p>
+          
+          <button class="btn-submit" style="margin-top:10px; font-size:0.75rem; padding:6px;" onclick="toggleElement('qrUploadBox')">📷 નવો QR Code અપલોડ કરો</button>
+          
+          <div id="qrUploadBox" style="display:none; margin-top:10px; text-align:left;">
+            <div class="form-group">
+              <label>તમારો QR Code ફોટો પસંદ કરો:</label>
+              <input type="file" accept="image/*" onchange="uploadCustomQr(event)">
+            </div>
+            <div class="form-group">
+              <label>UPI ID લખો:</label>
+              <input type="text" id="inputUpiId" placeholder="example@upi">
+            </div>
+            <button class="btn-submit" onclick="saveCustomQrDetails()">સેવ કરો</button>
+          </div>
         </div>
 
-        <!-- BANK ACCOUNT DETAILS -->
+        <!-- BANK ACCOUNT DETAILS (DYNAMIC DISPLAY) -->
         <div class="bank-card">
-          <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:8px;">🏦 સમાજ ટ્રસ્ટ બેંક વિગત:</h4>
-          <div class="bank-row"><span>એકાઉન્ટ નામ:</span> <strong>પોરબંદર સમસ્ત સિપાહી જમાત</strong></div>
-          <div class="bank-row"><span>બેંકનું નામ:</span> <strong>State Bank of India (SBI)</strong></div>
-          <div class="bank-row"><span>એકાઉન્ટ નંબર:</span> <strong>38291048291</strong></div>
-          <div class="bank-row"><span>IFSC કોડ:</span> <strong>SBIN0000458</strong></div>
-          <div class="bank-row"><span>શાખા:</span> <strong>પોરબંદર (Porbandar Main)</strong></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h4 style="font-size:0.9rem; color:var(--primary);">🏦 સમાજ ટ્રસ્ટ બેંક વિગત:</h4>
+            <button style="background:#e0f2fe; color:#0284c7; border:none; padding:4px 8px; border-radius:6px; font-size:0.72rem; font-weight:bold; cursor:pointer;" onclick="toggleElement('bankEditForm')">✏️ એડિટ કરો</button>
+          </div>
+          <div class="bank-row"><span>એકાઉન્ટ નામ:</span> <strong id="dispAccName">પોરબંદર સમસ્ત સિપાહી જમાત</strong></div>
+          <div class="bank-row"><span>બેંકનું નામ:</span> <strong id="dispBankName">State Bank of India (SBI)</strong></div>
+          <div class="bank-row"><span>એકાઉન્ટ નંબર:</span> <strong id="dispAccNo">38291048291</strong></div>
+          <div class="bank-row"><span>IFSC કોડ:</span> <strong id="dispIfsc">SBIN0000458</strong></div>
+          <div class="bank-row"><span>શાખા:</span> <strong id="dispBranch">પોરબંદર (Porbandar Main)</strong></div>
+        </div>
+
+        <!-- EDIT BANK DETAILS FORM -->
+        <div id="bankEditForm" style="display:none; background:#ffffff; padding:12px; border-radius:10px; border:1px solid #cbd5e1; margin-bottom:14px;">
+          <h4 style="font-size:0.85rem; color:var(--primary); margin-bottom:8px;">બેંક વિગત બદલો</h4>
+          <div class="form-group"><label>એકાઉન્ટ નામ:</label><input type="text" id="editAccName" value="પોરબંદર સમસ્ત સિપાહી જમાત"></div>
+          <div class="form-group"><label>બેંકનું નામ:</label><input type="text" id="editBankName" value="State Bank of India (SBI)"></div>
+          <div class="form-group"><label>એકાઉન્ટ નંબર:</label><input type="text" id="editAccNo" value="38291048291"></div>
+          <div class="form-group"><label>IFSC કોડ:</label><input type="text" id="editIfsc" value="SBIN0000458"></div>
+          <div class="form-group"><label>શાખા:</label><input type="text" id="editBranch" value="પોરબંદર (Porbandar Main)"></div>
+          <button class="btn-submit" onclick="saveBankDetails()">સેવ કરો</button>
         </div>
 
         <!-- WHATSAPP SLIP CONFIRMATION -->
@@ -529,6 +556,7 @@
 
   <script>
     let uploadedPhotoUrl = "";
+    let tempCustomQrUrl = "";
     let savedCards = JSON.parse(localStorage.getItem('sipay_id_cards')) || [];
     const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz6s9PLEsN4ALO2fZTon-yhaIn_Xua6wAT_Nd1BacHQ-iSUndc-Q99wmhqOkbcw4EX/exec";
 
@@ -678,6 +706,61 @@
       toggleElement('hallBookingFormBox');
     }
 
+    /* Custom QR Code Upload & Local Storage */
+    function uploadCustomQr(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) { tempCustomQrUrl = e.target.result; }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function saveCustomQrDetails() {
+      const upiId = document.getElementById('inputUpiId').value;
+      if(tempCustomQrUrl) {
+        localStorage.setItem('sipay_custom_qr', tempCustomQrUrl);
+        document.getElementById('displayQrImg').src = tempCustomQrUrl;
+      }
+      if(upiId) {
+        localStorage.setItem('sipay_custom_upi', upiId);
+        document.getElementById('displayUpiId').innerHTML = `UPI ID: <strong>${upiId}</strong>`;
+      }
+      alert('QR Code અને UPI ID સફળતાપૂર્વક બદલાઈ ગયા!');
+      toggleElement('qrUploadBox');
+    }
+
+    /* Save Bank Details to Local Storage */
+    function saveBankDetails() {
+      const accName = document.getElementById('editAccName').value;
+      const bankName = document.getElementById('editBankName').value;
+      const accNo = document.getElementById('editAccNo').value;
+      const ifsc = document.getElementById('editIfsc').value;
+      const branch = document.getElementById('editBranch').value;
+
+      const bankData = { accName, bankName, accNo, ifsc, branch };
+      localStorage.setItem('sipay_bank_data', JSON.stringify(bankData));
+
+      loadSavedBankDetails();
+      alert('બેંક વિગત સફળતાપૂર્વક સેવ થઈ ગઈ!');
+      toggleElement('bankEditForm');
+    }
+
+    function loadSavedBankDetails() {
+      const savedBank = JSON.parse(localStorage.getItem('sipay_bank_data'));
+      if(savedBank) {
+        document.getElementById('dispAccName').innerText = savedBank.accName;
+        document.getElementById('dispBankName').innerText = savedBank.bankName;
+        document.getElementById('dispAccNo').innerText = savedBank.accNo;
+        document.getElementById('dispIfsc').innerText = savedBank.ifsc;
+        document.getElementById('dispBranch').innerText = savedBank.branch;
+      }
+      const savedQr = localStorage.getItem('sipay_custom_qr');
+      if(savedQr) { document.getElementById('displayQrImg').src = savedQr; }
+      const savedUpi = localStorage.getItem('sipay_custom_upi');
+      if(savedUpi) { document.getElementById('displayUpiId').innerHTML = `UPI ID: <strong>${savedUpi}</strong>`; }
+    }
+
     function previewUserPhoto(event) {
       const file = event.target.files[0];
       if (file) {
@@ -712,7 +795,7 @@
       });
     }
 
-    /* Render ID Cards in Grid using Lion Logo File Name 1000385967.png */
+    /* Render ID Cards with GitHub Image Name IMG_20261021_190938.png */
     function renderCards() {
       const container = document.getElementById('a4PrintArea');
       container.innerHTML = "";
@@ -728,12 +811,12 @@
         const cardHtml = `
           <div class="id-card-item">
             <div class="id-card-header">
-              <img src="1000385967.png" class="card-header-logo" alt="Lion Logo">
+              <img src="IMG_20261021_190938.png" class="card-header-logo" alt="Lion Logo">
               <div class="card-header-title">
                 <h3>પોરબંદર સમસ્ત સિપાહી જમાત</h3>
                 <p>ડિજિટલ સભ્ય ઓળખપત્ર</p>
               </div>
-              <img src="1000385967.png" class="card-header-logo" alt="Lion Logo">
+              <img src="IMG_20261021_190938.png" class="card-header-logo" alt="Lion Logo">
             </div>
 
             <div class="id-card-body">
@@ -782,6 +865,7 @@
     window.onload = function() {
       recalculateTotals();
       renderCards();
+      loadSavedBankDetails();
     }
   </script>
 </body>
