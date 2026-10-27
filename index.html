@@ -159,10 +159,15 @@
     .verified-badge { background: #dcfce7; color: #16a34a; padding: 1px 6px; border-radius: 8px; font-weight: bold; }
     .card-action-row { display: flex; gap: 6px; margin-top: 8px; align-items: center; }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .gallery-item { border-radius: 12px; overflow: hidden; height: 140px; background: #e2e8f0; cursor: pointer; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s; }
-    .gallery-item img:hover { transform: scale(1.03); }
+    /* Gallery Grid & Dynamic Controls */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery-card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); display: flex; flex-direction: column; }
+    .gallery-img-wrapper { height: 150px; background: #e2e8f0; position: relative; overflow: hidden; }
+    .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-card-body { padding: 8px; text-align: center; }
+    .gallery-card-body span { font-size: 0.75rem; font-weight: 700; color: #1e3a8a; display: block; margin-bottom: 6px; }
+    .gallery-card-actions { display: flex; gap: 4px; justify-content: center; }
+    .btn-gal-del { background: #ef4444; color: white; border: none; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
 
     .dev-footer-card {
       background: linear-gradient(135deg, #020617, #1e1b4b); color: white;
@@ -233,9 +238,8 @@
       <!-- MANAGING BOARD PREVIEW SECTION -->
       <div class="section-card">
         <div class="section-title">👥 મેનેજિંગ બોર્ડ & વિશેષ સૂચના</div>
-        <div class="gallery-grid" style="margin-bottom: 10px;">
-          <div class="gallery-item"><img src="IMG20261024002328.jpg" alt="Managing Board"></div>
-          <div class="gallery-item"><img src="IMG20261024002643.jpg" alt="Rules Board"></div>
+        <div class="gallery-grid" id="homeBoardPreview" style="margin-bottom: 10px;">
+          <!-- Managed via JavaScript -->
         </div>
         <button class="btn-submit" onclick="openTab('gallery')" style="background:var(--primary);">📸 તમામ ફોટોઝ અને બોર્ડ ગેલેરી જુઓ</button>
       </div>
@@ -347,16 +351,22 @@
       </div>
     </div>
 
-    <!-- TAB 2: GALLERY (ALL UPLOADED PHOTOS & BOARDS) -->
+    <!-- TAB 2: DYNAMIC GALLERY (UPLOAD & DELETE OPTION) -->
     <div id="page-gallery" class="tab-page">
       <div class="section-card">
         <div class="section-title">🖼️ સમાજ હોલ અને મેનેજિંગ બોર્ડ ગેલેરી</div>
-        <p style="font-size:0.78rem; color:#64748b; margin-bottom:12px;">અહીં કોમ્યુનિટી હોલની અંદરની સજાવટ, મેનેજિંગ બોર્ડ અને ખાસ સૂચનાઓ દર્શાવવામાં આવી છે.</p>
-        <div class="gallery-grid">
-          <div class="gallery-item"><img src="1000385514.jpg" alt="Hall Exterior"></div>
-          <div class="gallery-item"><img src="IMG20261024002328.jpg" alt="Managing Board"></div>
-          <div class="gallery-item"><img src="IMG20261024002643.jpg" alt="Rules & Notice"></div>
-          <div class="gallery-item"><img src="IMG20261024002240.jpg" alt="Hall Decoration"></div>
+        <p style="font-size:0.78rem; color:#64748b; margin-bottom:12px;">અહીંથી તમે ગેલેરીમાં નવા ફોટો અપલોડ કે ડીલીટ કરી શકો છો.</p>
+        
+        <button class="btn-submit" onclick="toggleElement('addPhotoBox')" style="margin-bottom:14px;">➕ નવો ફોટો અપલોડ કરો (Add Photo)</button>
+
+        <div id="addPhotoBox" style="display:none; background:#f8fafc; padding:12px; border-radius:10px; border:1px solid #cbd5e1; margin-bottom:14px;">
+          <div class="form-group"><label>ફોટો ટાઇટલ / કેપ્શન (નામ):</label><input type="text" id="newPhotoTitle" placeholder="દા.ત. મેનેજિંગ બોર્ડ / હોલ"></div>
+          <div class="form-group"><label>ફોટો પસંદ કરો:</label><input type="file" accept="image/*" onchange="previewGalleryPhoto(event)"></div>
+          <button class="btn-submit" onclick="saveNewGalleryPhoto()">ગેલરીમાં સેવ કરો</button>
+        </div>
+
+        <div class="gallery-grid" id="mainGalleryContainer">
+          <!-- Photos rendered via JS -->
         </div>
       </div>
     </div>
@@ -470,6 +480,17 @@
   <script>
     let uploadedPhotoUrl = "";
     let tempCustomQrUrl = "";
+    let tempGalleryPhotoUrl = "";
+
+    // Default 4 photos
+    let defaultGallery = [
+      { id: 1, title: "સિપાહી હોલ ઇમારત", src: "1000385514.jpg" },
+      { id: 2, title: "મેનેજિંગ બોર્ડ", src: "IMG20261024002328.jpg" },
+      { id: 3, title: "ખાસ સૂચના બોર્ડ", src: "IMG20261024002643.jpg" },
+      { id: 4, title: "હોલ સ્ટેજ શણગાર", src: "IMG20261024002240.jpg" }
+    ];
+
+    let galleryList = JSON.parse(localStorage.getItem('sipay_gallery')) || defaultGallery;
     let savedCards = JSON.parse(localStorage.getItem('sipay_id_cards')) || [];
     let bloodDonorsList = [{ name: "અહમદભાઈ સિપાહી", mobile: "9825011111", bg: "A+", area: "છાયા" }];
 
@@ -485,6 +506,74 @@
     function toggleElement(id) {
       const el = document.getElementById(id);
       el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+    }
+
+    /* Gallery Dynamic Management */
+    function renderGallery() {
+      const container = document.getElementById('mainGalleryContainer');
+      const homePreview = document.getElementById('homeBoardPreview');
+      container.innerHTML = "";
+      homePreview.innerHTML = "";
+
+      galleryList.forEach((item, index) => {
+        // Full Gallery View
+        container.innerHTML += `
+          <div class="gallery-card">
+            <div class="gallery-img-wrapper">
+              <img src="${item.src}" alt="${item.title}">
+            </div>
+            <div class="gallery-card-body">
+              <span>${item.title}</span>
+              <div class="gallery-card-actions">
+                <button class="btn-gal-del" onclick="deleteGalleryPhoto(${index})">❌ ડીલીટ</button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Home page first 2 photos preview
+        if(index < 2) {
+          homePreview.innerHTML += `
+            <div class="gallery-card">
+              <div class="gallery-img-wrapper">
+                <img src="${item.src}" alt="${item.title}">
+              </div>
+            </div>
+          `;
+        }
+      });
+    }
+
+    function previewGalleryPhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) { tempGalleryPhotoUrl = e.target.result; }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function saveNewGalleryPhoto() {
+      const title = document.getElementById('newPhotoTitle').value || "સમાજ ફોટો";
+      if (!tempGalleryPhotoUrl) {
+        alert("મહેરબાની કરીને ફોટો પસંદ કરો.");
+        return;
+      }
+      galleryList.push({ id: Date.now(), title: title, src: tempGalleryPhotoUrl });
+      localStorage.setItem('sipay_gallery', JSON.stringify(galleryList));
+      tempGalleryPhotoUrl = "";
+      document.getElementById('newPhotoTitle').value = "";
+      toggleElement('addPhotoBox');
+      renderGallery();
+      alert("નવો ફોટો ગેલેરીમાં ઉમેરાઈ ગયો!");
+    }
+
+    function deleteGalleryPhoto(index) {
+      if (confirm("શું તમે આ ફોટો ગેલેરીમાંથી કાઢી નાખવા માગો છો?")) {
+        galleryList.splice(index, 1);
+        localStorage.setItem('sipay_gallery', JSON.stringify(galleryList));
+        renderGallery();
+      }
     }
 
     function openHisabPage(title) {
@@ -675,7 +764,12 @@
       if(confirm('શું તમે બધા કાર્ડ્સ હટાવવા માગો છો?')) { savedCards = []; localStorage.removeItem('sipay_id_cards'); renderCards(); }
     }
 
-    window.onload = function() { recalculateTotals(); renderCards(); loadSavedBankDetails(); }
+    window.onload = function() { 
+      renderGallery();
+      recalculateTotals(); 
+      renderCards(); 
+      loadSavedBankDetails(); 
+    }
   </script>
 </body>
 </html>
