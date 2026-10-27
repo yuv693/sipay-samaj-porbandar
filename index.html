@@ -428,7 +428,7 @@
           <button class="btn-clear-all" onclick="clearAllCards()">બધા કાઢી નાખો</button>
         </div>
         <div class="a4-grid-container" id="a4PrintArea"></div>
-        <button class="btn-print-a4" onclick="window.print()">🖨️ A4 કલર પ્રિન્ટ કાઢો (Print All Cards)</button>
+        <button class="btn-print-a4" onclick="window.print()">🖨️ કલર પ્રિન્ટ કાઢો (Print All Cards)</button>
       </div>
     </div>
 
@@ -438,7 +438,7 @@
         <div class="section-title">🏛️ કોમ્યુનિટી હોલ બુકિંગ સ્ટેટસ</div>
         <div id="hallBookingStatusList">
           <div class="data-item-card" style="display:flex; justify-content:space-between; align-items:center;">
-            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br><span style="color:#0284c7; font-weight:600;">🏢 હોલ ૧ (ગ્રાઉન્ડ ફ્લોર)</span></div>
+            <div><strong>તા. ૧૫ નવેમ્બર ૨૦૨૬</strong><br><span style="color:#0284c7; font-weight:600;">🏢 હોલ ૧ (ગ્રાઉન્ડ ફ્લોਰ)</span></div>
             <span class="status-booked">બુક છે 🔴</span>
           </div>
         </div>
@@ -631,7 +631,7 @@
     function saveAndAddCard(event) {
       event.preventDefault();
       const name = document.getElementById('mName').value;
-      const mobile = document.getElementById('mMobile').value;
+      const mobile = document.getElementById('mMobile5').value || document.getElementById('mMobile').value;
       const number = document.getElementById('mNumber').value;
       const area = document.getElementById('mArea').value;
       const photo = uploadedPhotoUrl || "";
